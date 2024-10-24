@@ -4,6 +4,7 @@ public class BajarPeso extends Objetivo{
     private float pesoIdeal;
 
     public BajarPeso(float pesoIdeal){
+        super();
         this.pesoIdeal = pesoIdeal;
     }
 
@@ -14,5 +15,10 @@ public class BajarPeso extends Objetivo{
     @Override
     public boolean cumplirObjetivo() {
         return false;
+    }
+
+    @Override
+    public void crearRutina() {
+
     }
 }

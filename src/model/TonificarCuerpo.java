@@ -5,12 +5,13 @@ public class TonificarCuerpo extends Objetivo {
     private Double porcentajeGrasa;
 
     public TonificarCuerpo(Double masaMuscular, double porcentajeGrasa){
+        super();
         this.masaMuscular = masaMuscular;
         this.porcentajeGrasa = porcentajeGrasa;
     }
 
     private Double calcularIdeal(){
-
+        return 10.5; //un ej
     }
 
     public void calcularMasa(){
@@ -24,5 +25,10 @@ public class TonificarCuerpo extends Objetivo {
     @Override
     public boolean cumplirObjetivo() {
         return false;
+    }
+
+    @Override
+    public void crearRutina() {
+
     }
 }

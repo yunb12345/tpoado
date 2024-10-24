@@ -3,7 +3,7 @@ package model;
 public abstract class Objetivo {
     private String descripcion;
 
-    public Objetivo(String descripcion) {
+    public Objetivo() {
         this.descripcion = descripcion;
     }
 
