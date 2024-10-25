@@ -1,5 +1,6 @@
 package model;
 
+import model.interfaces.IBalanza;
 import model.interfaces.ILogin;
 
 import java.util.List;
@@ -9,12 +10,15 @@ public class Socio {
     private char sexo;
     private float altura;
     private float peso;
+    private float masa;
+    private float grasa;
     private String nombre;
     private String password;
     private ILogin login;
     private Objetivo estadoObjetivo;
     private List<Peso> pesosDelMes;
     private List<Trofeo> trofeos;
+    private IBalanza balanza;
 
     public Socio(int edad, char sexo, float altura, float peso, String nombre, String password) {
         this.edad = edad;
@@ -26,7 +30,7 @@ public class Socio {
     }
 
     public float pesarse(){
-        return 1;
+        return balanza.pesarse();
     }
 
     public void loguearse(){
@@ -41,4 +45,13 @@ public class Socio {
 
     }
 
+    public float getPeso(){
+        return this.peso;
+    }
+    public float getMasa(){
+        return this.masa;
+    }
+    public float getGrasa(){
+        return this.grasa;
+    }
 }

@@ -7,12 +7,18 @@ public class TonificarCuerpo extends Objetivo {
         super();
     }
 
-    private Double calcularIdeal() {
-        return 10.5; //un ej
+    private float calcularGrasaIdeal(Socio socio) {
+        return 10.5F; //un ej
     }
+    private float calcularMasaIdeal(Socio socio){
+        return 10.5F;
+    }
+
     @Override
     public boolean cumplirObjetivo(Socio socio) {
-        return false;
+        float grasaIdeal = calcularGrasaIdeal(socio);
+        float masaIdeal = calcularMasaIdeal(socio);
+        return socio.getMasa() == masaIdeal && socio.getGrasa() == grasaIdeal;
     }
 
     @Override

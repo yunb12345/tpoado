@@ -25,12 +25,12 @@ public class Balanza implements IBalanza {
     }
 
     @Override
-    public void calcularMasa() {
-
+    public float calcularMasa() {
+        return 0;
     }
 
     @Override
-    public void calcularPesoIdeal() {
-
+    public float calcularPesoIdeal() {
+        return 0;
     }
 }
