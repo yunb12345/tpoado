@@ -1,9 +1,11 @@
 package model;
 
-public class BajarPeso extends Objetivo{
-    private float pesoIdeal;
+import controller.SocioController;
 
-    public BajarPeso(float pesoIdeal){
+public class BajarPeso extends Objetivo{
+    private Double pesoIdeal;
+
+    public BajarPeso(Double pesoIdeal){
         super();
         this.pesoIdeal = pesoIdeal;
     }
@@ -14,6 +16,10 @@ public class BajarPeso extends Objetivo{
 
     @Override
     public boolean cumplirObjetivo(Socio socio) {
+        pesoIdeal = calcularPesoIdeal();
+        if(socio.pesarse() == calcularPesoIdeal()){
+            return true;
+        }
         return false;
     }
 
