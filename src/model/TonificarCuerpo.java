@@ -1,29 +1,17 @@
 package model;
 
 public class TonificarCuerpo extends Objetivo {
-    private Double masaMuscular;
-    private Double porcentajeGrasa;
 
-    public TonificarCuerpo(Double masaMuscular, double porcentajeGrasa){
+
+    public TonificarCuerpo(Double masaMuscular, double porcentajeGrasa) {
         super();
-        this.masaMuscular = masaMuscular;
-        this.porcentajeGrasa = porcentajeGrasa;
     }
 
-    private Double calcularIdeal(){
+    private Double calcularIdeal() {
         return 10.5; //un ej
     }
-
-    public void calcularMasa(){
-
-    }
-
-    public void calcularGrasa(){
-
-    }
-
     @Override
-    public boolean cumplirObjetivo() {
+    public boolean cumplirObjetivo(Socio socio) {
         return false;
     }
 

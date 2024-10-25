@@ -34,7 +34,7 @@ public class Socio {
     }
 
     public boolean cumplirObjetivo(){
-        return true;
+        return estadoObjetivo.cumplirObjetivo(this);
     }
 
     public void cambiarObjetivo(Objetivo estadoObjetivo){

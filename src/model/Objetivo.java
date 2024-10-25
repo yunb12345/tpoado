@@ -7,6 +7,6 @@ public abstract class Objetivo {
         this.descripcion = descripcion;
     }
 
-    public abstract boolean cumplirObjetivo();
+    public abstract boolean cumplirObjetivo(Socio socio);
     public abstract void crearRutina();
 }

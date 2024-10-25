@@ -13,7 +13,7 @@ public class BajarPeso extends Objetivo{
     };
 
     @Override
-    public boolean cumplirObjetivo() {
+    public boolean cumplirObjetivo(Socio socio) {
         return false;
     }
 

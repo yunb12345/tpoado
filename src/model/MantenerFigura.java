@@ -8,7 +8,7 @@ public class MantenerFigura extends Objetivo{
         super();
     };
     @Override
-    public boolean cumplirObjetivo() {
+    public boolean cumplirObjetivo(Socio socio) {
         return false;
     }
 
