@@ -9,7 +9,6 @@ public class Socio {
     private int edad;
     private char sexo;
     private float altura;
-    private float peso;
     private float masa;
     private float grasa;
     private String nombre;
@@ -24,12 +23,12 @@ public class Socio {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
-        this.peso = peso;
         this.nombre = nombre;
         this.password = password;
     }
 
     public float pesarse(){
+
         return balanza.pesarse();
     }
 
