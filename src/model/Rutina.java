@@ -1,10 +1,19 @@
 package model;
 
-public class Rutina {
-    private int duracion = 4;
+import java.util.List;
 
-    public Rutina(int duracion) {
+public class Rutina {
+    private List<Entrenamiento> entrenamiento;
+    private int duracion = 4;
+    private Socio socio;
+
+    public Rutina(int duracion,List<Entrenamiento> entrenamiento,Socio socio) {
+        this.entrenamiento = null;
         this.duracion = duracion;
+        this.socio = socio;
+    }
+    public void generarRutina(){
+        
     }
 
     public void reforzarRutina(){

@@ -41,7 +41,7 @@ public class Socio {
     }
 
     public void cambiarObjetivo(Objetivo estadoObjetivo){
-
+        this.estadoObjetivo = estadoObjetivo;
     }
 
     public float getMasa(){
