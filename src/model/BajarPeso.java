@@ -1,7 +1,5 @@
 package model;
 
-import controller.SocioController;
-
 public class BajarPeso extends Objetivo{
     private Double pesoIdeal;
 

@@ -2,6 +2,7 @@ package model;
 
 public class Rutina {
     private int duracion = 4;
+    private Entrenamiento entrenamiento;
 
     public Rutina(int duracion) {
         this.duracion = duracion;
@@ -21,5 +22,10 @@ public class Rutina {
 
     public void finalizarRutina(){
 
+    }
+
+    public boolean rutinaCompletada(){
+        if(entrenamiento.)
+        return true;
     }
 }

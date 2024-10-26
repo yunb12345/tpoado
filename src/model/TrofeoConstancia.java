@@ -1,9 +1,17 @@
 package model;
 
+import java.util.List;
+
 public class TrofeoConstancia extends Trofeo{
 
-    @Override
-    public void otorgarTrofeo(){
+    public TrofeoConstancia(String descripcion, Notificador notificador) {
+        super(descripcion, notificador);
+    }
 
+    @Override
+    public void otorgarTrofeo(Socio socio){
+        if(socio.getRutina().rutinaCompletada()){
+            socio.agregarTrofeo(this);
+        }
     };
 }
