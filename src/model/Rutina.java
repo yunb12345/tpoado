@@ -31,4 +31,9 @@ public class Rutina {
     public void finalizarRutina(){
 
     }
+
+    public boolean rutinaCompletada(){
+        if(entrenamiento.)
+        return true;
+    }
 }

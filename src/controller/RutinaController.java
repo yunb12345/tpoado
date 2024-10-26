@@ -6,7 +6,6 @@ import model.Socio;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class RutinaController {
     private SocioController sociocontroller;
     private static RutinaController instancia = null;

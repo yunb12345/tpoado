@@ -3,6 +3,7 @@ package model;
 import model.interfaces.IBalanza;
 import model.interfaces.ILogin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Socio {
@@ -14,17 +15,19 @@ public class Socio {
     private String nombre;
     private String password;
     private ILogin login;
-    private Objetivo estadoObjetivo;
+    private Objetivo objetivo;
     private List<Peso> pesosDelMes;
     private List<Trofeo> trofeos;
     private IBalanza balanza;
+    private Rutina rutina;
 
-    public Socio(int edad, char sexo, float altura, String nombre, String password) {
+    public Socio(int edad, char sexo, float altura, String nombre, String password, List<Trofeo> trofeos) {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
         this.nombre = nombre;
         this.password = password;
+        this.trofeos = new ArrayList<>();
     }
 
     public void pesarse(int mes){
@@ -32,12 +35,16 @@ public class Socio {
         pesosDelMes.add(peso);
     }
 
+    public void agregarTrofeo(Trofeo trofeo){
+        trofeos.add(trofeo);
+    }
+
     public void loguearse(){
 
     }
 
     public boolean cumplirObjetivo(){
-        return estadoObjetivo.cumplirObjetivo(this);
+        return objetivo.cumplirObjetivo(this);
     }
 
     public void cambiarObjetivo(Objetivo estadoObjetivo){
@@ -61,5 +68,13 @@ public class Socio {
 
     public float getUltimoPeso(){
         return pesosDelMes.getLast().getPeso();
+    }
+
+    public Objetivo getObjetivo() {
+        return objetivo;
+    }
+
+    public Rutina getRutina() {
+        return rutina;
     }
 }
