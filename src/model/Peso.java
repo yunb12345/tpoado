@@ -9,7 +9,19 @@ public class Peso {
         this.mes = mes;
     }
 
-    public float pesarse(){
-        return 1;
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 }

@@ -19,7 +19,7 @@ public class Socio {
     private List<Trofeo> trofeos;
     private IBalanza balanza;
 
-    public Socio(int edad, char sexo, float altura, float peso, String nombre, String password) {
+    public Socio(int edad, char sexo, float altura, String nombre, String password) {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
@@ -27,9 +27,9 @@ public class Socio {
         this.password = password;
     }
 
-    public float pesarse(){
-
-        return balanza.pesarse();
+    public void pesarse(int mes){
+        Peso peso = new Peso(balanza.pesarse(), mes);
+        pesosDelMes.add(peso);
     }
 
     public void loguearse(){
@@ -44,13 +44,22 @@ public class Socio {
 
     }
 
-    public float getPeso(){
-        return this.peso;
-    }
     public float getMasa(){
         return this.masa;
     }
     public float getGrasa(){
         return this.grasa;
+    }
+
+    public List<Peso> getPesosDelMes() {
+        return pesosDelMes;
+    }
+
+    public float getPrimerPeso(){
+        return pesosDelMes.get(0).getPeso();
+    }
+
+    public float getUltimoPeso(){
+        return pesosDelMes.getLast().getPeso();
     }
 }

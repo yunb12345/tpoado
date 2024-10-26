@@ -17,7 +17,7 @@ public class BajarPeso extends Objetivo{
     @Override
     public boolean cumplirObjetivo(Socio socio) {
         pesoIdeal = calcularPesoIdeal();
-        return socio.getPeso() == calcularPesoIdeal();
+        return socio.getUltimoPeso() == calcularPesoIdeal();
     }
 
     @Override
