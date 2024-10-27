@@ -26,8 +26,8 @@ public class RutinaController {
         this.sociocontroller = SocioController.getInstance();
         this.entrenamientoController = EntrenamientoController.getInstancia();
     }
-    private Rutina generarRutina(Socio socio){
-        List<Ejercicio> ejercicios = entrenamientoController.generarEjercicio(socio.getObjetivo());
+    public Rutina generarRutina(Socio socio){
+        List<Ejercicio> ejercicios = entrenamientoController.generarEjercicio(socio.getObjetivo()); //lista de ejercicios dependiendo el objetivo
         Entrenamiento entrenamiento = entrenamientoController.generarEntrenamiento(ejercicios,1); //hardcodeo el dia
         Rutina rutina = new Rutina(socio,entrenamiento);
         socio.setRutina(rutina);

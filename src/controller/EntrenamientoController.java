@@ -26,6 +26,7 @@ public class EntrenamientoController {
         return objetivo.crearRutina();
     }
     public Entrenamiento generarEntrenamiento(List<Ejercicio> ejercicios,int dia){
-        Entrenamiento entrenamiento = new Entrenamiento(ejercicios,dia);
+        Entrenamiento entrenamiento = new Entrenamiento(dia,ejercicios);
+        return entrenamiento;
     }
 }
