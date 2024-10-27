@@ -1,6 +1,7 @@
 package controller;
 
 import model.Ejercicio;
+import model.EjercicioCompletado;
 import model.enums.ExigenciaMuscular;
 import model.enums.GrupoMuscular;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class EjercicioController {
     private static EjercicioController instancia = null;
     private List<Ejercicio> ejercicios = null;
+    private List<EjercicioCompletado> ejercicioCompletados;
 
     public static EjercicioController getInstancia(){
         if(instancia==null){
@@ -22,7 +24,12 @@ public class EjercicioController {
         ejercicios = new ArrayList<Ejercicio>();
         ejercicios.add(ejercicio1);
     }
+
     public List<Ejercicio> getEjercicios(){
         return ejercicios;
+    }
+
+    public void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
+        ejercicioCompletados.add(ejercicioCompletado);
     }
 }

@@ -11,6 +11,5 @@ public class TrofeoDedicacion extends Trofeo{
         if(socio.getObjetivo().isObjetivoCompletado()){
            socio.agregarTrofeo(this);
         }
-
     }
 }

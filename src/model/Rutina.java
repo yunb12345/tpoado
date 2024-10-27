@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 
 public class Rutina {
+    private List<Entrenamiento> entrenamientos;
     private Entrenamiento entrenamiento = null;
     private int duracion = 4;
     private Socio socio;
@@ -20,10 +21,6 @@ public class Rutina {
 
     }
 
-    public boolean verificarAsistenciaTotal(){
-        return true;
-    }
-
     public void iniciarRutina(){
 
     }
@@ -33,6 +30,11 @@ public class Rutina {
     }
 
     public boolean rutinaCompletada(){
+        for(Entrenamiento value: entrenamientos){
+            if(!value.asistencia() && value.verificarEjercicioCompletado()){
+                return false;
+            }
+        }
         return true;
     }
 }

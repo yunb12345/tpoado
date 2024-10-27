@@ -1,5 +1,10 @@
 package model;
 
+import controller.EjercicioController;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class EjercicioCompletado {
     private int cantSeries;
     private int repeticiones;
@@ -9,8 +14,5 @@ public class EjercicioCompletado {
         this.cantSeries = cantSeries;
         this.repeticiones = repeticiones;
         this.pesoLevantado = pesoLevantado;
-    }
-
-    public void registrarEjercicio(){
     }
 }
