@@ -6,13 +6,12 @@ import java.util.List;
 
 public class Entrenamiento {
     List<Ejercicio > ejercicios;
-    Date fecha;
-    Objetivo objetivo;
+    int dia;
+    //Objetivo objetivo;
 
-    public Entrenamiento(Date fecha, Objetivo objetivo, List<Ejercicio> ejercicios) {
-        this.fecha = fecha;
-        this.objetivo = objetivo;
-        this.ejercicios = new ArrayList<>();
+    public Entrenamiento(int dia, List<Ejercicio> ejercicios) {
+        this.dia = dia;
+        this.ejercicios = ejercicios;
     }
 
 

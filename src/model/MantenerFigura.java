@@ -1,5 +1,11 @@
 package model;
 
+import controller.EjercicioController;
+import model.enums.ExigenciaMuscular;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MantenerFigura extends Objetivo{
     private int oscilacionPeso;
 
@@ -19,7 +25,14 @@ public class MantenerFigura extends Objetivo{
     }
 
     @Override
-    public void crearRutina() {
-
+    public List<Ejercicio> crearRutina() {
+        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
+        List<Ejercicio> ejercicioAux = new ArrayList<>();
+        for (Ejercicio value : ejercicio) {
+            if ((2 <= value.getNivelAerobico() && value.getNivelAerobico() <= 4) && value.getNivelMuscular() != ExigenciaMuscular.alto) {
+                ejercicioAux.add(value);
+            }
+        }
+        return ejercicioAux;
     }
 }

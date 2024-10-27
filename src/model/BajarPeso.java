@@ -1,5 +1,10 @@
 package model;
 
+import controller.EjercicioController;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class BajarPeso extends Objetivo{
     private Double pesoIdeal;
 
@@ -19,7 +24,14 @@ public class BajarPeso extends Objetivo{
     }
 
     @Override
-    public void crearRutina() {
-
+    public List<Ejercicio> crearRutina() {
+        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
+        List<Ejercicio> ejercicioAux = new ArrayList<>();
+        for (Ejercicio value : ejercicio) {
+            if (value.getNivelAerobico() >= 3) {
+                ejercicioAux.add(value);
+            }
+        }
+        return ejercicioAux;
     }
 }

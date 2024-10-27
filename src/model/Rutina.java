@@ -3,17 +3,17 @@ package model;
 import java.util.List;
 
 public class Rutina {
-    private List<Entrenamiento> entrenamiento;
+    private Entrenamiento entrenamiento = null;
     private int duracion = 4;
     private Socio socio;
 
-    public Rutina(int duracion,List<Entrenamiento> entrenamiento,Socio socio) {
-        this.entrenamiento = null;
-        this.duracion = duracion;
+    public Rutina(Socio socio,Entrenamiento entrenamiento) {
         this.socio = socio;
+        this.entrenamiento = entrenamiento;
     }
+
     public void generarRutina(){
-        
+        Objetivo objetivo = socio.getObjetivo();
     }
 
     public void reforzarRutina(){
@@ -33,7 +33,6 @@ public class Rutina {
     }
 
     public boolean rutinaCompletada(){
-        if(entrenamiento.)
         return true;
     }
 }

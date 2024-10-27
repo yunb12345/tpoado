@@ -1,13 +1,17 @@
 package controller;
 
+import model.Ejercicio;
+import model.Objetivo;
 import model.Rutina;
+import model.Entrenamiento;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EntrenamientoController {
-    private SocioController sociocontroller;
+    private EjercicioController ejercicioController = EjercicioController.getInstancia();
     private static EntrenamientoController instancia = null;
+    private List<Entrenamiento> entrenamientos = null;
 
     public static EntrenamientoController getInstancia(){
         if(instancia==null){
@@ -16,6 +20,12 @@ public class EntrenamientoController {
         return instancia;
     }
     private EntrenamientoController(){
-        this.sociocontroller = SocioController.getInstance();
+        this.entrenamientos = new ArrayList<>();
+    }
+    public List<Ejercicio> generarEjercicio(Objetivo objetivo){
+        return objetivo.crearRutina();
+    }
+    public Entrenamiento generarEntrenamiento(List<Ejercicio> ejercicios,int dia){
+        Entrenamiento entrenamiento = new Entrenamiento(ejercicios,dia);
     }
 }

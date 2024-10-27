@@ -48,7 +48,7 @@ public class Socio {
     }
 
     public void cambiarObjetivo(Objetivo estadoObjetivo){
-        this.estadoObjetivo = estadoObjetivo;
+        this.objetivo = estadoObjetivo;
     }
 
     public float getMasa(){
@@ -76,5 +76,9 @@ public class Socio {
 
     public Rutina getRutina() {
         return rutina;
+    }
+
+    public void setRutina(Rutina rutina) {
+        this.rutina = rutina;
     }
 }
