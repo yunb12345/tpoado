@@ -30,4 +30,10 @@ public class Entrenamiento {
         }
         return true;
     }
+
+    public void modificarEntrenamiento(int nuevoCantRepeticiones, int nuevaCantSeries, int nuevoPeso){
+        for(Ejercicio value:ejercicios){
+            value.modificarValores(nuevoCantRepeticiones,nuevaCantSeries,nuevoPeso);
+        }
+    }
 }
