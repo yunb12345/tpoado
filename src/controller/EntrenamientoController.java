@@ -19,9 +19,11 @@ public class EntrenamientoController {
         }
         return instancia;
     }
+
     private EntrenamientoController(){
         this.entrenamientos = new ArrayList<>();
     }
+
     public List<Ejercicio> generarEjercicio(Objetivo objetivo){
         return objetivo.crearRutina();
     }

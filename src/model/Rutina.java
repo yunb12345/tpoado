@@ -17,12 +17,11 @@ public class Rutina {
         Objetivo objetivo = socio.getObjetivo();
     }
 
-    public void reforzarRuti(int nuevaCantRepeticiones, int nuevaCantSeries, int nuevoPeso){
+    public void reforzarRutina(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
         for(Entrenamiento value: entrenamientos){
             entrenamiento.modificarEntrenamiento(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
         }
     }
-
     public void iniciarRutina(){
 
     }
@@ -33,7 +32,7 @@ public class Rutina {
 
     public boolean rutinaCompletada(){
         for(Entrenamiento value: entrenamientos){
-            if(!value.asistencia() && value.verificarEjercicioCompletado()){
+            if(!value.cumplioAsistencia() && value.verificarEjercicioCompletado()){
                 return false;
             }
         }
