@@ -28,8 +28,12 @@ public class RutinaController {
     }
     public Rutina generarRutina(Socio socio){
         List<Ejercicio> ejercicios = entrenamientoController.generarEjercicio(socio.getObjetivo()); //lista de ejercicios dependiendo el objetivo
-        Entrenamiento entrenamiento = entrenamientoController.generarEntrenamiento(ejercicios,1); //hardcodeo el dia
-        Rutina rutina = new Rutina(socio,entrenamiento);
+        List<Entrenamiento> entrenamientos = new ArrayList<>();
+        Entrenamiento entrenamiento1 = entrenamientoController.generarEntrenamiento(ejercicios,1); //hardcodeo el dia
+        Entrenamiento entrenamiento2 = entrenamientoController.generarEntrenamiento(ejercicios,2);
+        entrenamientos.add(entrenamiento1);
+        entrenamientos.add(entrenamiento2);
+        Rutina rutina = new Rutina(socio,entrenamientos);
         socio.setRutina(rutina);
         return rutina;
     }

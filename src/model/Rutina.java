@@ -4,13 +4,12 @@ import java.util.List;
 
 public class Rutina {
     private List<Entrenamiento> entrenamientos;
-    private Entrenamiento entrenamiento = null;
     private int duracion = 4;
     private Socio socio;
 
-    public Rutina(Socio socio,Entrenamiento entrenamiento) {
+    public Rutina(Socio socio,List<Entrenamiento> entrenamientos) {
         this.socio = socio;
-        this.entrenamiento = entrenamiento;
+        this.entrenamientos = entrenamientos;
     }
 
     public void generarRutina(){
