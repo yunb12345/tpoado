@@ -8,7 +8,7 @@ public class TrofeoDedicacion extends Trofeo{
 
     @Override
     public void otorgarTrofeo(Socio socio) {
-        if(socio.getObjetivo().isObjetivoCompletado()){
+        if(socio.cumplirObjetivo()){
            socio.agregarTrofeo(this);
         }
     }

@@ -17,8 +17,10 @@ public class Rutina {
         Objetivo objetivo = socio.getObjetivo();
     }
 
-    public void reforzarRutina(){
-
+    public void reforzarRuti(int nuevaCantRepeticiones, int nuevaCantSeries, int nuevoPeso){
+        for(Entrenamiento value: entrenamientos){
+            entrenamiento.modificarEntrenamiento(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
+        }
     }
 
     public void iniciarRutina(){
