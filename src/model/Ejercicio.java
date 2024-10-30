@@ -26,8 +26,8 @@ public class Ejercicio {
         this.ejercicioFinalizado = false;
     }
 
-    public void modificarValores(int nuevoCantRepeticiones, int nuevaCantSeries, int nuevoPeso){
-        this.repeticiones = nuevoCantRepeticiones;
+    public void modificarValores(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
+        this.repeticiones = nuevaCantRepeticiones;
         this.cantidadSeries = nuevaCantSeries;
         this.pesoAsignado = nuevoPeso;
     }

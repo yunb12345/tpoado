@@ -18,7 +18,7 @@ public class Entrenamiento {
             asistencia = true;
     }
 
-    public boolean asistencia() {
+    public boolean cumplioAsistencia() {
         return asistencia;
     }
 
@@ -31,9 +31,9 @@ public class Entrenamiento {
         return true;
     }
 
-    public void modificarEntrenamiento(int nuevoCantRepeticiones, int nuevaCantSeries, int nuevoPeso){
+    public void modificarEntrenamiento(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
         for(Ejercicio value:ejercicios){
-            value.modificarValores(nuevoCantRepeticiones,nuevaCantSeries,nuevoPeso);
+            value.modificarValores(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
         }
     }
 }
