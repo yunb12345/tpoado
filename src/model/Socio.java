@@ -10,8 +10,6 @@ public class Socio {
     private int edad;
     private char sexo;
     private float altura;
-    private float masa;
-    private float grasa;
     private String nombre;
     private String password;
     private ILogin login;
@@ -19,7 +17,6 @@ public class Socio {
     private List<Peso> pesosDelMes;
     private List<Trofeo> trofeos;
     private IBalanza balanza;
-    private Rutina rutina;
 
     public Socio(int edad, char sexo, float altura, String nombre, String password, List<Trofeo> trofeos) {
         this.edad = edad;
@@ -30,8 +27,8 @@ public class Socio {
         this.trofeos = new ArrayList<>();
     }
 
-    public void pesarse(int mes){
-        Peso peso = new Peso(balanza.pesarse(), mes);
+    public void pesarse(int mes,int anio){
+        Peso peso = new Peso(balanza.pesarse(), balanza.calcularMasa(), balanza.calcularGrasa(), mes,anio);
         pesosDelMes.add(peso);
     }
 
@@ -51,34 +48,19 @@ public class Socio {
         this.objetivo = estadoObjetivo;
     }
 
-    public float getMasa(){
-        return this.masa;
-    }
-    public float getGrasa(){
-        return this.grasa;
-    }
-
     public List<Peso> getPesosDelMes() {
         return pesosDelMes;
     }
 
-    public float getPrimerPeso(){
-        return pesosDelMes.get(0).getPeso();
+    public Peso getPrimerPeso(){
+        return pesosDelMes.get(0);
     }
 
-    public float getUltimoPeso(){
-        return pesosDelMes.getLast().getPeso();
+    public Peso getUltimoPeso(){
+        return pesosDelMes.getLast();
     }
 
     public Objetivo getObjetivo() {
         return objetivo;
-    }
-
-    public Rutina getRutina() {
-        return rutina;
-    }
-
-    public void setRutina(Rutina rutina) {
-        this.rutina = rutina;
     }
 }

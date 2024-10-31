@@ -10,7 +10,7 @@ public class TrofeoConstancia extends Trofeo{
 
     @Override
     public void otorgarTrofeo(Socio socio){
-        if(socio.getRutina().rutinaCompletada()){
+        if(socio.getObjetivo().getRutina().rutinaCompletada()){ //revisar esto
             socio.agregarTrofeo(this);
         }
     };

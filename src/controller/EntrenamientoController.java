@@ -23,12 +23,4 @@ public class EntrenamientoController {
     private EntrenamientoController(){
         this.entrenamientos = new ArrayList<>();
     }
-
-    public List<Ejercicio> generarEjercicio(Objetivo objetivo){
-        return objetivo.crearRutina();
-    }
-    public Entrenamiento generarEntrenamiento(List<Ejercicio> ejercicios,int dia){
-        Entrenamiento entrenamiento = new Entrenamiento(dia,ejercicios);
-        return entrenamiento;
-    }
 }

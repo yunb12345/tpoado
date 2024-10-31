@@ -24,18 +24,18 @@ public class TonificarCuerpo extends Objetivo {
     public boolean cumplirObjetivo(Socio socio) {
         float grasaIdeal = calcularGrasaIdeal(socio);
         float masaIdeal = calcularMasaIdeal(socio);
-        return socio.getMasa() == masaIdeal && socio.getGrasa() == grasaIdeal;
+        return socio.getUltimoPeso().getMasa() == masaIdeal && socio.getUltimoPeso().getMasa() == grasaIdeal;
     }
 
     @Override
-    public List<Ejercicio> crearRutina() {
-        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
-        List<Ejercicio> ejercicioAux = new ArrayList<>();
-        for (Ejercicio value : ejercicio) {
-            if (value.getNivelAerobico() <= 5 && value.getNivelMuscular() == ExigenciaMuscular.alto) {
-                ejercicioAux.add(value);
-            }
-        }
-        return ejercicioAux;
+    public void crearRutina() {
+        Rutina rutina = new Rutina();
+        rutina.generarRutina(this);
+        this.setRutina(rutina);
+    }
+
+    @Override
+    public boolean cumpleCriterio(Ejercicio ejercicio) {
+        return ejercicio.getNivelAerobico() <= 5 && ejercicio.getNivelMuscular() == ExigenciaMuscular.alto;
     }
 }
