@@ -1,2 +1,5 @@
-package db;public class baseDatos {
+package db;
+
+public class baseDatos {
+
 }
