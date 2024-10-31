@@ -20,19 +20,19 @@ public class MantenerFigura extends Objetivo{
     //pes inic 60 osc 5, no puede pesar mas de 65
     @Override
     public boolean cumplirObjetivo(Socio socio) {
-        return !(socio.getPrimerPeso() - oscilacionPeso < socio.getUltimoPeso()) &&
-                !(socio.getPrimerPeso() + oscilacionPeso > socio.getUltimoPeso());
+        return !(socio.getPrimerPeso().getPeso() - oscilacionPeso < socio.getUltimoPeso().getPeso()) &&
+                !(socio.getPrimerPeso().getPeso() + oscilacionPeso > socio.getUltimoPeso().getPeso());
     }
 
     @Override
-    public List<Ejercicio> crearRutina() {
-        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
-        List<Ejercicio> ejercicioAux = new ArrayList<>();
-        for (Ejercicio value : ejercicio) {
-            if ((2 <= value.getNivelAerobico() && value.getNivelAerobico() <= 4) && value.getNivelMuscular() != ExigenciaMuscular.alto) {
-                ejercicioAux.add(value);
-            }
-        }
-        return ejercicioAux;
+    public void crearRutina() {
+        Rutina rutina = new Rutina();
+        rutina.generarRutina(this);
+        this.setRutina(rutina);
+    }
+
+    @Override
+    public boolean cumpleCriterio(Ejercicio ejercicio) {
+        return ((ejercicio.getNivelAerobico() <= 2 && ejercicio.getNivelAerobico() <= 4) && ejercicio.getNivelMuscular() != ExigenciaMuscular.alto);
     }
 }

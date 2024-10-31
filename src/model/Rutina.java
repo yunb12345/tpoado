@@ -4,22 +4,24 @@ import java.util.List;
 
 public class Rutina {
     private List<Entrenamiento> entrenamientos;
-    private Entrenamiento entrenamiento = null;
     private int duracion = 4;
-    private Socio socio;
 
-    public Rutina(Socio socio,Entrenamiento entrenamiento) {
-        this.socio = socio;
-        this.entrenamiento = entrenamiento;
+    public Rutina() {
+
     }
 
-    public void generarRutina(){
-        Objetivo objetivo = socio.getObjetivo();
+    public void generarRutina(Objetivo objetivo){
+        int cantEntrenamiento = 4;
+        for(int i=0;i<cantEntrenamiento;i++){
+            Entrenamiento entrenamiento = new Entrenamiento(i);
+            entrenamiento.generarEjercicio(objetivo);
+            entrenamientos.add(entrenamiento);
+        }
     }
 
     public void reforzarRutina(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
         for(Entrenamiento value: entrenamientos){
-            entrenamiento.modificarEntrenamiento(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
+            value.modificarEntrenamiento(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
         }
     }
     public void iniciarRutina(){

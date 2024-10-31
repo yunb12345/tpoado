@@ -1,16 +1,18 @@
 package model;
 
+import controller.EjercicioController;
+import model.enums.ExigenciaMuscular;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entrenamiento {
     private List<Ejercicio> ejercicios;
     private int dia;
     private boolean asistencia;
-    //Objetivo objetivo;
 
-    public Entrenamiento(int dia, List<Ejercicio> ejercicios) {
+    public Entrenamiento(int dia) {
         this.dia = dia;
-        this.ejercicios = ejercicios;
         this.asistencia = false;
     }
 
@@ -30,10 +32,24 @@ public class Entrenamiento {
         }
         return true;
     }
+    public void generarEjercicio(Objetivo objetivo){
+        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
+        List<Ejercicio> ejercicioAux = new ArrayList<>();
+        for(Ejercicio value:ejercicio){
+            if(objetivo.cumpleCriterio(value)){
+                ejercicioAux.add(value);
+            }
+        }
+        setEjercicios(ejercicioAux);
+    }
 
     public void modificarEntrenamiento(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
         for(Ejercicio value:ejercicios){
             value.modificarValores(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
         }
+    }
+
+    public void setEjercicios(List<Ejercicio> ejercicios) {
+        this.ejercicios = ejercicios;
     }
 }

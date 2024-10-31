@@ -4,6 +4,7 @@ import java.util.List;
 
 public abstract class Objetivo {
     private String descripcion;
+    private Rutina rutina;
 
     public Objetivo() {
         this.descripcion = descripcion;
@@ -11,6 +12,12 @@ public abstract class Objetivo {
 
     //Para el refuerzo de la rutina, esto no es sobre el progreso
     public abstract boolean cumplirObjetivo(Socio socio);
-    public abstract List<Ejercicio> crearRutina();
-
+    public abstract void crearRutina();
+    public abstract boolean cumpleCriterio(Ejercicio ejercicio);
+    public void setRutina(Rutina rutina) {
+        this.rutina = rutina;
+    }
+    public Rutina getRutina() {
+        return rutina;
+    }
 }

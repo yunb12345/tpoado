@@ -20,18 +20,18 @@ public class BajarPeso extends Objetivo{
     @Override
     public boolean cumplirObjetivo(Socio socio) {
         pesoIdeal = calcularPesoIdeal();
-        return socio.getUltimoPeso() == calcularPesoIdeal();
+        return socio.getUltimoPeso().getPeso() == calcularPesoIdeal();
     }
 
     @Override
-    public List<Ejercicio> crearRutina() {
-        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
-        List<Ejercicio> ejercicioAux = new ArrayList<>();
-        for (Ejercicio value : ejercicio) {
-            if (value.getNivelAerobico() >= 3) {
-                ejercicioAux.add(value);
-            }
-        }
-        return ejercicioAux;
+    public void crearRutina() {
+        Rutina rutina = new Rutina();
+        rutina.generarRutina(this);
+        this.setRutina(rutina);
     }
+    @Override
+    public boolean cumpleCriterio(Ejercicio ejercicio) {
+        return ejercicio.getNivelAerobico()>=3;
+    }
+
 }
