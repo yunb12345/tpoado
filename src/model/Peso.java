@@ -1,19 +1,18 @@
 package model;
 
+import model.interfaces.IBalanza;
+
+import java.util.Date;
+
 public class Peso {
     private float peso;
-    private int anio;
     private float masa;
     private float grasa;
-    private int mes;
+    private IBalanza balanza;
+    private Date fecha;
 
-
-    public Peso(float peso,float masa,float grasa,int mes,int anio) {
-        this.peso = peso;
-        this.mes = mes;
-        this.anio = anio;
-        this.masa = masa;
-        this.grasa = grasa;
+    public Peso() {
+        this.pesarse();
     }
 
     public float getPeso() {
@@ -24,19 +23,22 @@ public class Peso {
         this.peso = peso;
     }
 
-    public int getMes() {
-        return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
     public float getMasa() {
         return masa;
     }
 
     public float getGrasa() {
         return grasa;
+    }
+
+    public void pesarse(){
+        peso = balanza.pesarse();
+        masa = balanza.calcularMasa();
+        grasa = balanza.calcularGrasa();
+        fecha = new Date();
+    }
+
+    public Date getFecha() {
+        return fecha;
     }
 }

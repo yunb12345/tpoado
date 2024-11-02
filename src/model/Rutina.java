@@ -11,7 +11,7 @@ public class Rutina {
     }
 
     public void generarRutina(Objetivo objetivo){
-        int cantEntrenamiento = 4;
+        int cantEntrenamiento = 4; //hardcodeado
         for(int i=0;i<cantEntrenamiento;i++){
             Entrenamiento entrenamiento = new Entrenamiento(i);
             entrenamiento.generarEjercicio(objetivo);
