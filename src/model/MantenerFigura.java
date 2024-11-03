@@ -33,6 +33,7 @@ public class MantenerFigura extends Objetivo{
 
     @Override
     public boolean cumpleCriterio(Ejercicio ejercicio) {
-        return ((ejercicio.getNivelAerobico() <= 2 && ejercicio.getNivelAerobico() <= 4) && ejercicio.getNivelMuscular() != ExigenciaMuscular.alto);
+        return ((ejercicio.getNivelAerobico() <= 2 && ejercicio.getNivelAerobico() <= 4) &&
+                ejercicio.getNivelMuscular() != ExigenciaMuscular.alto);
     }
 }

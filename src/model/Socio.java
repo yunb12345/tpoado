@@ -37,7 +37,7 @@ public class Socio {
     }
 
     public void loguearse(){
-
+        new Login();
     }
 
     public boolean cumplirObjetivo(){
@@ -62,5 +62,21 @@ public class Socio {
 
     public Objetivo getObjetivo() {
         return objetivo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

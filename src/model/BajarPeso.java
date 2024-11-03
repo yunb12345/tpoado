@@ -1,10 +1,5 @@
 package model;
 
-import controller.EjercicioController;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class BajarPeso extends Objetivo{
     private Double pesoIdeal;
 

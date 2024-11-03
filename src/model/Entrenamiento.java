@@ -32,6 +32,7 @@ public class Entrenamiento {
         }
         return true;
     }
+
     public void generarEjercicio(Objetivo objetivo){
         List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
         List<Ejercicio> ejercicioAux = new ArrayList<>();

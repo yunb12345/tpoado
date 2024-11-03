@@ -33,7 +33,6 @@ public class Ejercicio {
     }
 
     public void iniciarEjercicio(){
-
     }
 
     public void finalizarEjercicio(){

@@ -1,5 +1,9 @@
 package db;
 
-public class baseDatos {
+import model.Socio;
 
+import java.util.List;
+
+public class baseDatos {
+    private  static List<Socio> socios;
 }
