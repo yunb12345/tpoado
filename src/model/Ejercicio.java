@@ -34,7 +34,8 @@ public abstract class Ejercicio{
 
     public void finalizarEjercicio(Entrenamiento entrenamiento){
         Date fechaActual = new Date();
-        EjercicioCompletado ejercicioCompletado = new EjercicioCompletado(cantidadSeries,repeticiones,pesoAsignado,fechaActual,entrenamiento,this);
+        EjercicioCompletado ejercicioCompletado = new EjercicioCompletado(cantidadSeries,repeticiones,pesoAsignado,
+                fechaActual,entrenamiento,this);
         EjercicioController.getInstancia().agregarEjercicioCompletado(ejercicioCompletado);
         ejercicioFinalizado = true;
     }
@@ -67,4 +68,5 @@ public abstract class Ejercicio{
     public GrupoMuscular getGrupoMuscular() {
         return grupoMuscular;
     }
+
 }

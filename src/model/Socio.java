@@ -31,17 +31,21 @@ public class Socio {
         listaPeso.add(peso);
         notificarObservadores(); //observer
     }
+
     public void agregarTrofeo(Trofeo trofeo){
         trofeos.add(trofeo);
     }
+
     public void eliminarTrofeo(Trofeo trofeo){
         trofeos.remove(trofeo);
     }
+
     public void notificarObservadores(){
         for(Trofeo trofeo:trofeos){
             trofeo.otorgarTrofeo(this);
         }
     }
+
     public void loguearse(){
         login.loguearse(nombre,password);
     }
@@ -65,12 +69,15 @@ public class Socio {
     public Peso getUltimoPeso(){
         return listaPeso.getLast();
     }
+
     public Objetivo getObjetivo() {
         return objetivo;
     }
+
     public String getNombre(){
         return nombre;
     }
+
     public String getPassword(){
         return password;
     }

@@ -7,7 +7,6 @@ public class Rutina {
     private int duracion = 4;
 
     public Rutina() {
-
     }
 
     public void generarRutina(Objetivo objetivo){
@@ -25,10 +24,11 @@ public class Rutina {
         }
     }
     public void iniciarRutina(){
-
+        System.out.println("Rutina iniciada");
     }
 
     public void finalizarRutina(){
+        System.out.println("Rutina finalizada");
     }
 
     public boolean rutinaCompletada(){

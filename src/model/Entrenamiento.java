@@ -19,6 +19,7 @@ public class Entrenamiento {
     public void iniciarEntrenamiento(){
             asistencia = true;
     }
+
     public void finalizarEntrenamiento(){
         for(Ejercicio ejercicio:ejercicios){
             ejercicio.finalizarEjercicio(this);
@@ -48,9 +49,11 @@ public class Entrenamiento {
         }
         setEjercicios(ejercicioAux);
     }
+
     public void setEjercicios(List<Ejercicio> ejercicios) {
         this.ejercicios = ejercicios;
     }
+
     public void reforzarEjercicio(float porcentaje){
         List<Ejercicio> ejerciciosReforzados = new ArrayList<>();
         for(Ejercicio ejercicio:ejercicios){

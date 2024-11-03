@@ -14,7 +14,8 @@ public class EjercicioCompletado {
     private Entrenamiento entrenamiento;
     private Ejercicio ejercicio;
 
-    public EjercicioCompletado(int cantSeries,int repeticiones,float pesoLevantado,Date fecha,Entrenamiento entrenamiento,Ejercicio ejercicio){
+    public EjercicioCompletado(int cantSeries,int repeticiones,float pesoLevantado,Date fecha,
+                               Entrenamiento entrenamiento,Ejercicio ejercicio){
         this.cantSeries = cantSeries;
         this.repeticiones = repeticiones;
         this.pesoLevantado = pesoLevantado;
