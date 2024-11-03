@@ -1,10 +1,5 @@
 package controller;
 
-import model.Socio;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class SocioController {
 
     private static SocioController INSTANCE = null;
@@ -17,9 +12,8 @@ public class SocioController {
             INSTANCE = new SocioController();
         }
            return INSTANCE;
-        }
-
-    public void otorgarTrofeo(){
+    }
+    public void crearSocio(){
 
     }
 

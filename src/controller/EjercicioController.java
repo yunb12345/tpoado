@@ -1,17 +1,15 @@
 package controller;
 
+import bd.BaseDato;
 import model.Ejercicio;
 import model.EjercicioCompletado;
 import model.enums.ExigenciaMuscular;
 import model.enums.GrupoMuscular;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EjercicioController {
     private static EjercicioController instancia = null;
-    private List<Ejercicio> ejercicios = null;
-    private List<EjercicioCompletado> ejercicioCompletados;
 
     public static EjercicioController getInstancia(){
         if(instancia==null){
@@ -20,16 +18,17 @@ public class EjercicioController {
         return instancia;
     }
     private EjercicioController(){
-        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5,ExigenciaMuscular.alto, GrupoMuscular.brazo);
-        ejercicios = new ArrayList<Ejercicio>();
-        ejercicios.add(ejercicio1);
+        //Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5,ExigenciaMuscular.alto, GrupoMuscular.brazo);
+        //BaseDato.agregarEjercicio(ejercicio1);
     }
 
     public List<Ejercicio> getEjercicios(){
-        return ejercicios;
+        return BaseDato.getEjercicios();
     }
-
+    public void agregarEjercicio(Ejercicio ejercicio){
+        BaseDato.agregarEjercicio(ejercicio);
+    }
     public void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
-        ejercicioCompletados.add(ejercicioCompletado);
+        BaseDato.agregarEjercicioCompletado(ejercicioCompletado);
     }
 }
