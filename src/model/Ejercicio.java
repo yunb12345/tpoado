@@ -4,15 +4,17 @@ import controller.EjercicioController;
 import model.enums.ExigenciaMuscular;
 import model.enums.GrupoMuscular;
 
-public class Ejercicio {
-    private int cantidadSeries;
-    private int repeticiones;
-    private float pesoAsignado;
-    private int nivelAerobico;
-    private ExigenciaMuscular nivelMuscular;
-    private GrupoMuscular grupoMuscular;
-    private VideoEjercicio video;//agregac
-    private boolean ejercicioFinalizado;
+import java.util.Date;
+
+public abstract class Ejercicio{
+    protected int cantidadSeries;
+    protected int repeticiones;
+    protected float pesoAsignado;
+    protected int nivelAerobico;
+    protected ExigenciaMuscular nivelMuscular;
+    protected GrupoMuscular grupoMuscular;
+    protected VideoEjercicio video;//agregac
+    protected boolean ejercicioFinalizado;
 
 
     public Ejercicio(int cantidadSeries, int repeticiones, float pesoAsignado, int nivelAerobico,
@@ -26,17 +28,13 @@ public class Ejercicio {
         this.ejercicioFinalizado = false;
     }
 
-    public void modificarValores(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
-        this.repeticiones = nuevaCantRepeticiones;
-        this.cantidadSeries = nuevaCantSeries;
-        this.pesoAsignado = nuevoPeso;
-    }
-
     public void iniciarEjercicio(){
+        System.out.println("Inicio el ejercicio");
     }
 
-    public void finalizarEjercicio(){
-        EjercicioCompletado ejercicioCompletado = new EjercicioCompletado(cantidadSeries,repeticiones,pesoAsignado);
+    public void finalizarEjercicio(Entrenamiento entrenamiento){
+        Date fechaActual = new Date();
+        EjercicioCompletado ejercicioCompletado = new EjercicioCompletado(cantidadSeries,repeticiones,pesoAsignado,fechaActual,entrenamiento,this);
         EjercicioController.getInstancia().agregarEjercicioCompletado(ejercicioCompletado);
         ejercicioFinalizado = true;
     }
@@ -66,4 +64,7 @@ public class Ejercicio {
     }
 
 
+    public GrupoMuscular getGrupoMuscular() {
+        return grupoMuscular;
+    }
 }

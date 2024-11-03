@@ -19,12 +19,17 @@ public class Entrenamiento {
     public void iniciarEntrenamiento(){
             asistencia = true;
     }
+    public void finalizarEntrenamiento(){
+        for(Ejercicio ejercicio:ejercicios){
+            ejercicio.finalizarEjercicio(this);
+        }
+    }
 
     public boolean cumplioAsistencia() {
         return asistencia;
     }
 
-    public boolean verificarEjercicioCompletado(){
+    public boolean verificarEjerciciosCompletado(){
         for(Ejercicio value: ejercicios){
             if(!value.ejercicioFinalizado()){
                 return false;
@@ -43,14 +48,15 @@ public class Entrenamiento {
         }
         setEjercicios(ejercicioAux);
     }
-
-    public void modificarEntrenamiento(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
-        for(Ejercicio value:ejercicios){
-            value.modificarValores(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
-        }
-    }
-
     public void setEjercicios(List<Ejercicio> ejercicios) {
         this.ejercicios = ejercicios;
+    }
+    public void reforzarEjercicio(float porcentaje){
+        List<Ejercicio> ejerciciosReforzados = new ArrayList<>();
+        for(Ejercicio ejercicio:ejercicios){
+            Ejercicio ejercicioReforzado = new EjercicioReforzado(ejercicio,porcentaje);
+            ejerciciosReforzados.add(ejercicioReforzado);
+        }
+        setEjercicios(ejerciciosReforzados);
     }
 }

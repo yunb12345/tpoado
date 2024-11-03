@@ -14,11 +14,10 @@ public class Socio {
     private String password;
     private ILogin login;
     private Objetivo objetivo;
-    private List<Peso> pesosDelMes;
+    private List<Peso> listaPeso;
     private List<Trofeo> trofeos;
-    private IBalanza balanza;
 
-    public Socio(int edad, char sexo, float altura, String nombre, String password, List<Trofeo> trofeos) {
+    public Socio(int edad, char sexo, float altura, String nombre, String password) {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
@@ -27,17 +26,24 @@ public class Socio {
         this.trofeos = new ArrayList<>();
     }
 
-    public void pesarse(int mes,int anio){
-        Peso peso = new Peso(balanza.pesarse(), balanza.calcularMasa(), balanza.calcularGrasa(), mes,anio);
-        pesosDelMes.add(peso);
+    public void pesarse(){
+        Peso peso = new Peso();
+        listaPeso.add(peso);
+        notificarObservadores(); //observer
     }
-
     public void agregarTrofeo(Trofeo trofeo){
         trofeos.add(trofeo);
     }
-
+    public void eliminarTrofeo(Trofeo trofeo){
+        trofeos.remove(trofeo);
+    }
+    public void notificarObservadores(){
+        for(Trofeo trofeo:trofeos){
+            trofeo.otorgarTrofeo(this);
+        }
+    }
     public void loguearse(){
-        new Login();
+        login.loguearse(nombre,password);
     }
 
     public boolean cumplirObjetivo(){
@@ -48,35 +54,25 @@ public class Socio {
         this.objetivo = estadoObjetivo;
     }
 
-    public List<Peso> getPesosDelMes() {
-        return pesosDelMes;
+    public List<Peso> getListaPeso() {
+        return listaPeso;
     }
 
     public Peso getPrimerPeso(){
-        return pesosDelMes.get(0);
+        return listaPeso.get(0);
     }
 
     public Peso getUltimoPeso(){
-        return pesosDelMes.getLast();
+        return listaPeso.getLast();
     }
-
     public Objetivo getObjetivo() {
         return objetivo;
     }
-
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPassword() {
+    public String getPassword(){
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

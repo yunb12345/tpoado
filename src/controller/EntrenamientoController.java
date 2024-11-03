@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntrenamientoController {
-    private EjercicioController ejercicioController = EjercicioController.getInstancia();
     private static EntrenamientoController instancia = null;
-    private List<Entrenamiento> entrenamientos = null;
 
     public static EntrenamientoController getInstancia(){
         if(instancia==null){
@@ -21,6 +19,6 @@ public class EntrenamientoController {
     }
 
     private EntrenamientoController(){
-        this.entrenamientos = new ArrayList<>();
+
     }
 }

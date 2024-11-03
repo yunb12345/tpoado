@@ -1,7 +1,5 @@
 package model.interfaces;
 
-import model.Socio;
-
 public interface ILogin {
-    public void loguearse(Socio socio);
+    public void loguearse(String nombre,String pass);
 }

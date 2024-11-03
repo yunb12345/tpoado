@@ -1,17 +1,24 @@
 package model;
 
+import bd.BaseDato;
 import model.interfaces.ILogin;
 
-import java.util.Date;
+import java.util.Objects;
 
 public class Login implements ILogin {
-    private Date fecha;
 
     @Override
-    public void loguearse(Socio socio) {
-        if(socio.getNombre() == null && socio.getPassword() == null){
-            System.out.println("Error, nombre y contraseña no pueden ser nulos ");
+    public void loguearse(String nombre,String pass) {
+        boolean flag = false;
+        for(Socio socio : BaseDato.getSocios()){
+            if(Objects.equals(socio.getNombre(), nombre) && Objects.equals(socio.getPassword(), pass)){
+                flag = true;
+            }
         }
-        System.out.println("Inicio de sesión exitoso para: " + socio.getNombre());
+        if(flag){
+            System.out.println("Te logueaste correctamente");
+        }else{
+            System.out.println("Usuario o passsword incorrecto");
+        }
     }
 }

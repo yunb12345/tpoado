@@ -11,7 +11,7 @@ public class Rutina {
     }
 
     public void generarRutina(Objetivo objetivo){
-        int cantEntrenamiento = 4;
+        int cantEntrenamiento = 4; //hardcodeado
         for(int i=0;i<cantEntrenamiento;i++){
             Entrenamiento entrenamiento = new Entrenamiento(i);
             entrenamiento.generarEjercicio(objetivo);
@@ -19,9 +19,9 @@ public class Rutina {
         }
     }
 
-    public void reforzarRutina(int nuevaCantRepeticiones, int nuevaCantSeries, float nuevoPeso){
+    public void reforzarRutina(float porcentaje){
         for(Entrenamiento value: entrenamientos){
-            value.modificarEntrenamiento(nuevaCantRepeticiones,nuevaCantSeries,nuevoPeso);
+            value.reforzarEjercicio(porcentaje);
         }
     }
     public void iniciarRutina(){
@@ -29,12 +29,11 @@ public class Rutina {
     }
 
     public void finalizarRutina(){
-
     }
 
     public boolean rutinaCompletada(){
         for(Entrenamiento value: entrenamientos){
-            if(!value.cumplioAsistencia() && value.verificarEjercicioCompletado()){
+            if(!value.cumplioAsistencia() && value.verificarEjerciciosCompletado()){
                 return false;
             }
         }

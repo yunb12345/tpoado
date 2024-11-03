@@ -1,10 +1,12 @@
 package model;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class TrofeoCreido extends Trofeo{
 
-    private int mesActual;
+    private Date fechaUltimoTrofeo;
 
     public TrofeoCreido(String descripcion, Notificador notificador) {
         super(descripcion, notificador);
@@ -12,19 +14,36 @@ public class TrofeoCreido extends Trofeo{
 
     @Override
     public void otorgarTrofeo(Socio socio) {
-        List<Peso> pesos = socio.getPesosDelMes();
+        List<Peso> pesos = socio.getListaPeso();
         int cantVecesPesadas = 0;
-        for(Peso value: pesos){
-            if(value.getMes() == mesActual){
+        Date fechaActual = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(fechaActual); //calendario con la fechaActual
+        cal.add(Calendar.MONTH, -1); // Hace un mes atras de la fecha actual
+        Date fechaLimite = cal.getTime();
+
+        if (fechaUltimoTrofeo != null && esMismoMes(fechaUltimoTrofeo, fechaActual)) {
+            return; // Si ya se otorgó un trofeo en el mismo mes, no otorgar otro
+        }
+        for (Peso peso : pesos) {
+            if (peso.getFecha().after(fechaLimite)) {
                 cantVecesPesadas++;
             }
         }
         if (cantVecesPesadas >=3){
             socio.agregarTrofeo(this);
-        }
-        /*-sobre trofeo
-        trofeo al creido, q se pasa mas de 3 veces al mes
-        si es en un determinado mes, o si es que se pese min 3 veces al mes en todos los meses
-        o si solo existe un solo mes q se haya pesado mas de 3 veces q se lo den*/
+            fechaUltimoTrofeo = fechaActual;
         }
     }
+
+    // Metodo para verificar si es el mismo mes y año
+    private boolean esMismoMes(Date fecha1, Date fecha2) {
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal1.setTime(fecha1);
+        cal2.setTime(fecha2);
+
+        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH);
+    }
+}
