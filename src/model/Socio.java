@@ -17,7 +17,7 @@ public class Socio {
     private List<Peso> listaPeso;
     private List<Trofeo> trofeos;
 
-    public Socio(int edad, char sexo, float altura, String nombre, String password, List<Trofeo> trofeos) {
+    public Socio(int edad, char sexo, float altura, String nombre, String password) {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
@@ -43,7 +43,7 @@ public class Socio {
         }
     }
     public void loguearse(){
-
+        login.loguearse(nombre,password);
     }
 
     public boolean cumplirObjetivo(){
@@ -67,6 +67,12 @@ public class Socio {
     }
     public Objetivo getObjetivo() {
         return objetivo;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public String getPassword(){
+        return password;
     }
 
 }

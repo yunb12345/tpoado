@@ -1,5 +1,5 @@
 package model.interfaces;
 
 public interface ILogin {
-    public void loguearse();
+    public void loguearse(String nombre,String pass);
 }

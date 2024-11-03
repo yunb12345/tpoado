@@ -1,5 +1,8 @@
 package controller;
 
+import bd.BaseDato;
+import model.Socio;
+
 public class SocioController {
 
     private static SocioController INSTANCE = null;
@@ -13,8 +16,9 @@ public class SocioController {
         }
            return INSTANCE;
     }
-    public void crearSocio(){
-
+    public void crearSocio(Socio socio){
+        //ej Socio socio1 = new Socio(15,'M',18.8f,"Pedro","123");
+        BaseDato.agregarSocios(socio);
     }
 
 }
