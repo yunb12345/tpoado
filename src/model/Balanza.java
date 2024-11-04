@@ -7,30 +7,32 @@ public class Balanza implements IBalanza {
     private float peso;
     private float porcentajeGrasa;
     private float masaMuscular;
+    private float estatura;
 
-    public Balanza(float peso, float porcentajeGrasa,float masaMuscular){
+    public Balanza(float peso, float porcentajeGrasa, float masaMuscular, float estatura){
         this.peso = peso;
         this.porcentajeGrasa = porcentajeGrasa;
         this.masaMuscular = masaMuscular;
+        this.estatura = estatura;
     }
 
     @Override
     public float pesarse() {
-        return 0;
+        return peso;
     }
 
     @Override
     public float calcularGrasa() {
-        return 0;
+        return porcentajeGrasa;
     }
 
     @Override
     public float calcularMasa() {
-        return 0;
+        return masaMuscular;
     }
 
     @Override
     public float calcularPesoIdeal() {
-        return 0;
+        return peso/estatura * estatura;
     }
 }

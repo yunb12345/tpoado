@@ -8,17 +8,17 @@ import java.util.Objects;
 public class Login implements ILogin {
 
     @Override
-    public void loguearse(String nombre,String pass) {
+    public void loguearse(String nombre,String password) {
         boolean flag = false;
         for(Socio socio : BaseDato.getSocios()){
-            if(Objects.equals(socio.getNombre(), nombre) && Objects.equals(socio.getPassword(), pass)){
+            if(Objects.equals(socio.getNombre(), nombre) && Objects.equals(socio.getPassword(), password)){
                 flag = true;
             }
         }
         if(flag){
-            System.out.println("Te logueaste correctamente");
+            System.out.println("Te logueaste correctamente, bienvenido!");
         }else{
-            System.out.println("Usuario o passsword incorrecto");
+            System.out.println("Nombre de Usuario o contrseña incorrecta");
         }
     }
 }

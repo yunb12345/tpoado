@@ -18,13 +18,13 @@ public class BaseDato {
     public static List<Ejercicio> getEjercicios(){
         return ejercicios;
     }
-    public static void agregarEjercicioCompletado(EjercicioCompletado ejercicio){
-        ejercicioCompletados.add(ejercicio);
+    public static void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
+        ejercicioCompletados.add(ejercicioCompletado);
     }
     public static List<EjercicioCompletado> getEjercicioCompletados(){
         return ejercicioCompletados;
     }
-    public static void agregarSocios(Socio socio){
+    public static void agregarSocio(Socio socio){
         socios.add(socio);
     }
     public static List<Socio> getSocios(){

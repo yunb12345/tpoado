@@ -17,7 +17,8 @@ public class Entrenamiento {
     }
 
     public void iniciarEntrenamiento(){
-            asistencia = true;
+        asistencia = true;
+        System.out.println("Entrenamiento iniciado");
     }
 
     public void finalizarEntrenamiento(){
