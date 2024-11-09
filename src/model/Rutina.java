@@ -24,10 +24,11 @@ public class Rutina {
         }
     }
     public void iniciarRutina(){
-
+        System.out.println("Rutina iniciada");
     }
 
     public void finalizarRutina(){
+        System.out.println("Rutina finalizada");
     }
 
     public boolean rutinaCompletada(){

@@ -7,10 +7,11 @@ public class EjercicioReforzado extends Ejercicio{
     protected Ejercicio ejercicio;
     float porcentaje;
     public EjercicioReforzado(Ejercicio ejercicio,float porcentaje) {
-        super(ejercicio.getCantidadSeries(),ejercicio.getRepeticiones(),ejercicio.getPesoAsignado(),ejercicio.getNivelAerobico(),
-                ejercicio.getNivelMuscular(),ejercicio.getGrupoMuscular());
-        this.ejercicio=ejercicio;
+        super(ejercicio.getCantidadSeries(),ejercicio.getRepeticiones(),ejercicio.getPesoAsignado(),
+                ejercicio.getNivelAerobico(), ejercicio.getNivelMuscular(),
+                ejercicio.getGrupoMuscular());
 
+        this.ejercicio=ejercicio;
     }
     private void aplicarModificaciones() {
         ejercicio.pesoAsignado *= (1 + porcentaje / 100);

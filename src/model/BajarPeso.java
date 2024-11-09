@@ -1,10 +1,5 @@
 package model;
 
-import controller.EjercicioController;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class BajarPeso extends Objetivo{
     private Double pesoIdeal;
 
@@ -15,7 +10,7 @@ public class BajarPeso extends Objetivo{
 
     private Double calcularPesoIdeal(){
         return 25.5;
-    };
+    }; //hardcodeado
 
     @Override
     public boolean cumplirObjetivo(Socio socio) {

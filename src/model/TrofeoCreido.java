@@ -32,6 +32,7 @@ public class TrofeoCreido extends Trofeo{
         }
         if (cantVecesPesadas >=3){
             socio.agregarTrofeo(this);
+            notificador.notificar(new Notificacion("Felicidades, has obtenido un nuevo trofeo"));
             fechaUltimoTrofeo = fechaActual;
         }
     }

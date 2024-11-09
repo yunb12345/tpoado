@@ -9,14 +9,16 @@ public abstract class Objetivo {
     public Objetivo() {
         this.descripcion = descripcion;
     }
-
     //Para el refuerzo de la rutina, esto no es sobre el progreso
     public abstract boolean cumplirObjetivo(Socio socio);
-    public abstract void crearRutina();
+
     public abstract boolean cumpleCriterio(Ejercicio ejercicio);
+    public abstract void crearRutina();
+
     public void setRutina(Rutina rutina) {
         this.rutina = rutina;
     }
+
     public Rutina getRutina() {
         return rutina;
     }

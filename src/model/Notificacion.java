@@ -6,4 +6,8 @@ public class Notificacion {
     public Notificacion(String mensaje) {
         this.mensaje = mensaje;
     }
+
+    public String getMensaje() {
+        return mensaje;
+    }
 }

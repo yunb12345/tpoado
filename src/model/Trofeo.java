@@ -2,7 +2,7 @@ package model;
 
 public abstract class Trofeo {
     private String descripcion;
-    private Notificador notificador;
+    protected Notificador notificador;
 
     public Trofeo(String descripcion, Notificador notificador) {
         this.descripcion = descripcion;

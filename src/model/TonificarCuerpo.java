@@ -8,7 +8,6 @@ import java.util.List;
 
 public class TonificarCuerpo extends Objetivo {
 
-
     public TonificarCuerpo(Double masaMuscular, double porcentajeGrasa) {
         super();
     }
