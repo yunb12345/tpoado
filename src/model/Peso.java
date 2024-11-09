@@ -19,10 +19,6 @@ public class Peso {
         return peso;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
     public float getMasa() {
         return masa;
     }
