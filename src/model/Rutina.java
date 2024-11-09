@@ -7,7 +7,6 @@ public class Rutina {
     private int duracion = 4;
 
     public Rutina() {
-
     }
 
     public void generarRutina(Objetivo objetivo){
