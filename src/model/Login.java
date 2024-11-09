@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Login implements ILogin {
 
     @Override
-    public void loguearse(String nombre,String pass) {
+    public boolean loguearse(String nombre,String pass) {
         boolean flag = false;
         for(Socio socio : BaseDato.getSocios()){
             if(Objects.equals(socio.getNombre(), nombre) && Objects.equals(socio.getPassword(), pass)){
@@ -20,5 +20,6 @@ public class Login implements ILogin {
         }else{
             System.out.println("Usuario o passsword incorrecto");
         }
+        return flag;
     }
 }

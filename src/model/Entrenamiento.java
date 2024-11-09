@@ -17,7 +17,8 @@ public class Entrenamiento {
     }
 
     public void iniciarEntrenamiento(){
-            asistencia = true;
+        this.finalizarEntrenamiento(); //hardcodeado
+        asistencia = true;
     }
     public void finalizarEntrenamiento(){
         for(Ejercicio ejercicio:ejercicios){
@@ -57,5 +58,9 @@ public class Entrenamiento {
             ejerciciosReforzados.add(ejercicioReforzado);
         }
         setEjercicios(ejerciciosReforzados);
+    }
+
+    public int getDia() {
+        return dia;
     }
 }

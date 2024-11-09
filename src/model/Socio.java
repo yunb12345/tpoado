@@ -25,6 +25,9 @@ public class Socio {
         this.nombre = nombre;
         this.password = password;
         this.trofeos = new ArrayList<>();
+        this.listaPeso = new ArrayList<Peso>();
+        this.obs = new TrofeoCreido("El trofeo creido");
+        this.login = new Login();
     }
 
     public void pesarse(){
@@ -48,8 +51,8 @@ public class Socio {
         trofeos.add(trofeo);
     }
 
-    public void loguearse(){
-        login.loguearse(nombre,password);
+    public boolean loguearse(){
+        return login.loguearse(nombre,password);
     }
 
     public boolean cumplirObjetivo(){
@@ -83,5 +86,6 @@ public class Socio {
     public String getPassword(){
         return password;
     }
+    public List<Trofeo> getTrofeos(){return trofeos;}
 
 }

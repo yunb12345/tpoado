@@ -8,7 +8,7 @@ public class Peso {
     private float peso;
     private float masa;
     private float grasa;
-    private IBalanza balanza;
+    private IBalanza balanza = new Balanza();
     private Date fecha;
 
     public Peso() {

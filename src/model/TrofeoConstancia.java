@@ -4,8 +4,8 @@ import java.util.List;
 
 public class TrofeoConstancia extends Trofeo{
 
-    public TrofeoConstancia(String descripcion, Notificador notificador) {
-        super(descripcion, notificador);
+    public TrofeoConstancia(String descripcion) {
+        super(descripcion);
     }
 
     @Override

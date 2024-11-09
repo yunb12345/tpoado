@@ -8,8 +8,8 @@ public class TrofeoCreido extends Trofeo{
 
     private Date fechaUltimoTrofeo;
 
-    public TrofeoCreido(String descripcion, Notificador notificador) {
-        super(descripcion, notificador);
+    public TrofeoCreido(String descripcion) {
+        super(descripcion);
     }
 
     @Override

@@ -4,9 +4,9 @@ public abstract class Trofeo {
     private String descripcion;
     protected Notificador notificador;
 
-    public Trofeo(String descripcion, Notificador notificador) {
+    public Trofeo(String descripcion) {
         this.descripcion = descripcion;
-        this.notificador = notificador;
+        this.notificador = new Notificador();
     }
 
     public abstract void otorgarTrofeo(Socio socio);
