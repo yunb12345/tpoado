@@ -1,21 +1,25 @@
 package model;
 
 public class BajarPeso extends Objetivo{
-    private Double pesoIdeal;
+    private float pesoIdeal;
 
-    public BajarPeso(Double pesoIdeal){
+    public BajarPeso(){
         super();
-        this.pesoIdeal = pesoIdeal;
     }
 
-    private Double calcularPesoIdeal(){
-        return 25.5;
+    private float calcularPesoIdeal(){
+        return 70.10f;
     }; //hardcodeado
 
     @Override
     public boolean cumplirObjetivo(Socio socio) {
         pesoIdeal = calcularPesoIdeal();
-        return socio.getUltimoPeso().getPeso() == calcularPesoIdeal();
+        if (socio.getUltimoPeso().getPeso() == calcularPesoIdeal()){
+            Objetivo objetivo = new MantenerFigura(5);
+            socio.cambiarObjetivo(objetivo);
+            return true;
+        }
+        return false;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class SocioController {
         if(INSTANCE  == null){
             INSTANCE = new SocioController();
         }
-           return INSTANCE;
+        return INSTANCE;
     }
 
     public void crearSocio(Socio socio){

@@ -23,7 +23,12 @@ public class TonificarCuerpo extends Objetivo {
     public boolean cumplirObjetivo(Socio socio) {
         float grasaIdeal = calcularGrasaIdeal(socio);
         float masaIdeal = calcularMasaIdeal(socio);
-        return socio.getUltimoPeso().getMasa() == masaIdeal && socio.getUltimoPeso().getMasa() == grasaIdeal;
+        if (socio.getUltimoPeso().getMasa() == masaIdeal && socio.getUltimoPeso().getMasa() == grasaIdeal){
+            Objetivo objetivo = new MantenerFigura(5);
+            socio.cambiarObjetivo(objetivo);
+            return true;
+        }
+        return false;
     }
 
     @Override

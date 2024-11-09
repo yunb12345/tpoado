@@ -16,6 +16,7 @@ public class Socio {
     private Objetivo objetivo;
     private List<Peso> listaPeso;
     private List<Trofeo> trofeos;
+    private TrofeoCreido obs;
 
     public Socio(int edad, char sexo, float altura, String nombre, String password) {
         this.edad = edad;
@@ -24,30 +25,35 @@ public class Socio {
         this.nombre = nombre;
         this.password = password;
         this.trofeos = new ArrayList<>();
+        this.listaPeso = new ArrayList<Peso>();
+        this.obs = new TrofeoCreido("El trofeo creido");
+        this.login = new Login();
     }
 
     public void pesarse(){
         Peso peso = new Peso();
         listaPeso.add(peso);
-        notificarObservadores(); //observer
+        notificarObservador(); //observer
+    }
+
+    public void setearObserver(TrofeoCreido creido){
+        obs=creido;
+    }
+
+    public void eliminarObserver(){
+        obs=null;
+    }
+
+    public void notificarObservador(){
+        obs.otorgarTrofeo(this);
     }
 
     public void agregarTrofeo(Trofeo trofeo){
         trofeos.add(trofeo);
     }
 
-    public void eliminarTrofeo(Trofeo trofeo){
-        trofeos.remove(trofeo);
-    }
-
-    public void notificarObservadores(){
-        for(Trofeo trofeo:trofeos){
-            trofeo.otorgarTrofeo(this);
-        }
-    }
-
-    public void loguearse(){
-        login.loguearse(nombre,password);
+    public boolean loguearse(){
+        return login.loguearse(nombre,password);
     }
 
     public boolean cumplirObjetivo(){
@@ -79,5 +85,6 @@ public class Socio {
     public String getPassword(){
         return password;
     }
+    public List<Trofeo> getTrofeos(){return trofeos;}
 
 }

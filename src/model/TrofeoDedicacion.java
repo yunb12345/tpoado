@@ -2,8 +2,8 @@ package model;
 
 public class TrofeoDedicacion extends Trofeo{
 
-    public TrofeoDedicacion(String descripcion, Notificador notificador) {
-        super(descripcion, notificador);
+    public TrofeoDedicacion(String descripcion) {
+        super(descripcion);
     }
 
     @Override

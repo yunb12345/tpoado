@@ -17,10 +17,9 @@ public class Entrenamiento {
     }
 
     public void iniciarEntrenamiento(){
+        this.finalizarEntrenamiento(); //hardcodeado
         asistencia = true;
-        System.out.println("Entrenamiento iniciado");
     }
-
     public void finalizarEntrenamiento(){
         for(Ejercicio ejercicio:ejercicios){
             ejercicio.finalizarEjercicio(this);
@@ -39,7 +38,6 @@ public class Entrenamiento {
         }
         return true;
     }
-
     public void generarEjercicio(Objetivo objetivo){
         List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
         List<Ejercicio> ejercicioAux = new ArrayList<>();
@@ -50,11 +48,9 @@ public class Entrenamiento {
         }
         setEjercicios(ejercicioAux);
     }
-
     public void setEjercicios(List<Ejercicio> ejercicios) {
         this.ejercicios = ejercicios;
     }
-
     public void reforzarEjercicio(float porcentaje){
         List<Ejercicio> ejerciciosReforzados = new ArrayList<>();
         for(Ejercicio ejercicio:ejercicios){
@@ -62,5 +58,9 @@ public class Entrenamiento {
             ejerciciosReforzados.add(ejercicioReforzado);
         }
         setEjercicios(ejerciciosReforzados);
+    }
+
+    public int getDia() {
+        return dia;
     }
 }

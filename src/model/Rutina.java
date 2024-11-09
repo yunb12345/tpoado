@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rutina {
@@ -7,6 +8,7 @@ public class Rutina {
     private int duracion = 4;
 
     public Rutina() {
+        entrenamientos = new ArrayList<Entrenamiento>();
     }
 
     public void generarRutina(Objetivo objetivo){
@@ -24,7 +26,12 @@ public class Rutina {
         }
     }
     public void iniciarRutina(){
-        System.out.println("Rutina iniciada");
+        for(Entrenamiento entrenamiento :entrenamientos){
+            if(entrenamiento.getDia() == 1){ //hardcodeado
+                entrenamiento.iniciarEntrenamiento();
+            }
+        };
+        this.finalizarRutina();
     }
 
     public void finalizarRutina(){
