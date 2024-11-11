@@ -91,7 +91,8 @@ public class TestUnit {
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.getObjetivo().getRutina().iniciarRutina();
-        TrofeoConstancia trofeoConstancia = new TrofeoConstancia("has sido constante");
+
+        TrofeoConstancia trofeoConstancia = new TrofeoConstancia("asd");
         trofeoConstancia.otorgarTrofeo(socio1);
         Assert.assertEquals(1,socio1.getTrofeos().size());
     }

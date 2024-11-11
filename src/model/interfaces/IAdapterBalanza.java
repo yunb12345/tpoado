@@ -1,6 +1,6 @@
 package model.interfaces;
 
-public interface IBalanza {
+public interface IAdapterBalanza {
     public float pesarse();
     public float calcularGrasa();
     public float calcularMasa();

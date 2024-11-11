@@ -1,6 +1,6 @@
 package model;
 
-import model.interfaces.IBalanza;
+import model.interfaces.IAdapterBalanza;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ public class Peso {
     private float peso;
     private float masa;
     private float grasa;
-    private IBalanza balanza = new Balanza();
+    private IAdapterBalanza balanza = new AdapterBalanza();
     private Date fecha;
 
     public Peso() {

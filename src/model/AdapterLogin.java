@@ -1,11 +1,11 @@
 package model;
 
 import bd.BaseDato;
-import model.interfaces.ILogin;
+import model.interfaces.IAdapterLogin;
 
 import java.util.Objects;
 
-public class Login implements ILogin {
+public class AdapterLogin implements IAdapterLogin {
 
     @Override
     public boolean loguearse(String nombre,String pass) {

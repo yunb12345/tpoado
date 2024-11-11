@@ -1,7 +1,7 @@
 package model;
 
-import model.interfaces.IBalanza;
-import model.interfaces.ILogin;
+import model.interfaces.IAdapterBalanza;
+import model.interfaces.IAdapterLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,8 @@ public class Socio {
     private float altura;
     private String nombre;
     private String password;
-    private ILogin login;
+    private IAdapterLogin adapterLogin;
+    private IAdapterBalanza adapterBalanza;
     private Objetivo objetivo;
     private List<Peso> listaPeso;
     private List<Trofeo> trofeos;
@@ -25,9 +26,9 @@ public class Socio {
         this.nombre = nombre;
         this.password = password;
         this.trofeos = new ArrayList<>();
-        this.listaPeso = new ArrayList<Peso>();
+        this.listaPeso = new ArrayList<>();
         this.obs = new TrofeoCreido("El trofeo creido");
-        this.login = new Login();
+        this.adapterLogin = new AdapterLogin();
     }
 
     public void pesarse(){
@@ -53,7 +54,7 @@ public class Socio {
     }
 
     public boolean loguearse(){
-        return login.loguearse(nombre,password);
+        return adapterLogin.loguearse(nombre,password);
     }
 
     public boolean cumplirObjetivo(){
