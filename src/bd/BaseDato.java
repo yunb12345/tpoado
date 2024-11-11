@@ -15,9 +15,11 @@ public class BaseDato {
     public static void agregarEjercicio(Ejercicio ejercicio){
         ejercicios.add(ejercicio);
     }
+
     public static List<Ejercicio> getEjercicios(){
         return ejercicios;
     }
+
     public static void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
         ejercicioCompletados.add(ejercicioCompletado);
     }
@@ -27,18 +29,22 @@ public class BaseDato {
     public static void agregarRutina(Rutina rutina){
         rutinas.add(rutina);
     }
+
     public static List<Rutina> getRutinas(){
         return rutinas;
     }
+
     public static List<EjercicioReforzado> getEjercicioReforzado(){
         return ejercicioReforzados;
     }
     public static List<EjercicioCompletado> getEjercicioCompletados(){
         return ejercicioCompletados;
     }
+
     public static void agregarSocio(Socio socio){
         socios.add(socio);
     }
+
     public static List<Socio> getSocios(){
         return socios;
     }

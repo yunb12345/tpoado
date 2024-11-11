@@ -94,7 +94,6 @@ public class TestUnit {
         TrofeoConstancia trofeoConstancia = new TrofeoConstancia("asd");
         trofeoConstancia.otorgarTrofeo(socio1);
         Assert.assertEquals(1,socio1.getTrofeos().size());
-
     }
 
     @Test
@@ -134,4 +133,7 @@ public class TestUnit {
         socioController.crearSocio(socio1);
         Assert.assertEquals(true,socio1.loguearse());
     }
+
+
+
 }

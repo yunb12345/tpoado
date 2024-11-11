@@ -8,11 +8,11 @@ public class Rutina {
     private int duracion = 4;
 
     public Rutina() {
-        entrenamientos = new ArrayList<Entrenamiento>();
+        entrenamientos = new ArrayList<>();
     }
 
     public void generarRutina(Objetivo objetivo){
-        int cantEntrenamiento = 4; //hardcodeado tiene 4 dias en teoria
+        int cantEntrenamiento = 4; //hardcodeado tiene 4 dias
         for(int i=0;i<cantEntrenamiento;i++){
             Entrenamiento entrenamiento = new Entrenamiento(i);
             entrenamiento.generarEjercicio(objetivo);
@@ -25,20 +25,12 @@ public class Rutina {
             value.reforzarEjercicio(porcentaje);
         }
     }
+
     public void iniciarRutina(){
         for(Entrenamiento entrenamiento :entrenamientos){
-            /*
-            if(entrenamiento.getDia() == 1){ //hardcodeado
-                entrenamiento.iniciarEntrenamiento();
-            }
-             */
-            entrenamiento.iniciarEntrenamiento(); //inicia y termina el entrenamiento (hardcodeado)
+            entrenamiento.iniciarEntrenamiento();
         };
-        this.finalizarRutina();
-    }
-
-    public void finalizarRutina(){
-        System.out.println("Rutina finalizada");
+        this.rutinaCompletada();
     }
 
     public boolean rutinaCompletada(){

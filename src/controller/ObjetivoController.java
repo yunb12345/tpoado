@@ -15,7 +15,6 @@ public class ObjetivoController {
     }
 
     public void estadoCumplimientoObjetivo(Socio socio){
-        //logica del progres/ si lo esta cumpliendo
         if(!socio.cumplirObjetivo()){
             socio.getObjetivo().getRutina().reforzarRutina(15.5f); //datos hardcodeados y revisar esto
         }

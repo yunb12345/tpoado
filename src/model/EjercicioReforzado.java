@@ -14,6 +14,7 @@ public class EjercicioReforzado extends Ejercicio{
         this.ejercicio=ejercicio;
         aplicarModificaciones();
     }
+
     private void aplicarModificaciones() {
         ejercicio.pesoAsignado *= (1 + porcentaje / 100);
         ejercicio.repeticiones = Math.round(ejercicio.repeticiones * (1 + porcentaje / 100));
