@@ -29,7 +29,7 @@ public abstract class Ejercicio{
     }
 
     public void iniciarEjercicio(){
-        System.out.println("Inicio el ejercicio");
+        System.out.println("Inicio de ejercicio");
     }
 
     public void finalizarEjercicio(Entrenamiento entrenamiento){
@@ -63,7 +63,6 @@ public abstract class Ejercicio{
     public float getPesoAsignado() {
         return pesoAsignado;
     }
-
 
     public GrupoMuscular getGrupoMuscular() {
         return grupoMuscular;

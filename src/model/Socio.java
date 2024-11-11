@@ -47,6 +47,7 @@ public class Socio {
     public void notificarObservador(){
         obs.otorgarTrofeo(this);
     }
+
     public void agregarTrofeo(Trofeo trofeo){
         trofeos.add(trofeo);
     }
@@ -63,9 +64,7 @@ public class Socio {
         this.objetivo = estadoObjetivo;
     }
 
-    public List<Peso> getListaPeso() {
-        return listaPeso;
-    }
+    public List<Peso> getListaPeso() {return listaPeso;}
 
     public Peso getPrimerPeso(){
         return listaPeso.get(0);

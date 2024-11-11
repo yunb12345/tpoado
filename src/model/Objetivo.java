@@ -3,15 +3,14 @@ package model;
 import java.util.List;
 
 public abstract class Objetivo {
-    private String descripcion;
-    private Rutina rutina;
+    protected String descripcion;
+    protected Rutina rutina;
 
     public Objetivo() {
-        this.descripcion = descripcion;
     }
+
     //Para el refuerzo de la rutina, esto no es sobre el progreso
     public abstract boolean cumplirObjetivo(Socio socio);
-
     public abstract boolean cumpleCriterio(Ejercicio ejercicio);
     public abstract void crearRutina();
 

@@ -17,13 +17,14 @@ public class TestUnit {
     @Test
     public void crearUsuario(){
         socioController = socioController.getInstance();
-        Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
+        Socio socio1 = new Socio(25,'M',1.45f,"Agustin","14735");
         socioController.crearSocio(socio1);
         Assert.assertEquals(1, BaseDato.getSocios().size());
     }
+
     @Test
     public void cambiarObjetivo(){
-        Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
+        Socio socio1 = new Socio(30,'M',1.85f,"Matias","666");
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.pesarse();
@@ -31,8 +32,10 @@ public class TestUnit {
         socio1.cumplirObjetivo(); //se cumple el objetivo y se cambia la rutina a mantener figura
 
         Objetivo objetivo2 = new MantenerFigura(5);
+        //falta que cambie la rutina
         Assert.assertEquals(objetivo2, socio1.getObjetivo());
     }
+
     @Test
     public void asignarRutina(){
         Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
@@ -42,14 +45,31 @@ public class TestUnit {
         Rutina rutina = new Rutina();
         Assert.assertEquals(rutina,socio1.getObjetivo().getRutina());
     }
+
     @Test
-    public void asignarTrofeo(){
-        Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
+    public void asignarTrofeoCreido(){
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
         socio1.pesarse();
         socio1.pesarse();
         socio1.pesarse();
         Assert.assertEquals(1,socio1.getTrofeos().size());
     }
+
+    @Test
+    public void TrofeoConstancia(){
+
+    }
+
+    @Test
+    public void TrofeoDedicacion(){
+        Socio socio3 = new Socio(35,'M',1.80f,"Luca","78922");
+        Objetivo objetivo = new BajarPeso();
+        socio3.cambiarObjetivo(objetivo);
+        socio3.pesarse();
+        socio3.cumplirObjetivo();
+        Assert.assertEquals(1,socio3.getTrofeos().size());
+    }
+
     @Test
     public void registrarEjercicio(){
         ejercicioController = ejercicioController.getInstancia();
@@ -60,19 +80,19 @@ public class TestUnit {
         ejercicioController.agregarEjercicio(ejercicio2);
         ejercicioController.agregarEjercicio(ejercicio3);
 
-        Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
+        Socio socio1 = new Socio(19,'M',1.69f,"Marcos","7844");
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.getObjetivo().crearRutina();
         socio1.getObjetivo().getRutina().iniciarRutina();
 
         Assert.assertEquals(1,BaseDato.getEjercicioCompletados().size());
-
     }
+
     @Test
     public void autenticarUsuario(){
         socioController = socioController.getInstance();
-        Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
+        Socio socio1 = new Socio(27,'M',1.90f,"Matias","123");
         socioController.crearSocio(socio1);
         Assert.assertEquals(true,socio1.loguearse());
     }
