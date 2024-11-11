@@ -68,7 +68,7 @@ public class TestUnit {
         socio1.getObjetivo().crearRutina(); //generamos la rutina
         socio1.getObjetivo().reforzarRutina();
         EjercicioReforzado ejercicioReforzado = new EjercicioReforzado(ejercicio1,5f);
-        Assert.assertEquals(1,BaseDato.getEjercicioReforzado());
+        Assert.assertEquals(4,BaseDato.getEjercicioReforzado().size());
     }
 
     @Test
