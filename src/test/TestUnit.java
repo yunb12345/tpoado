@@ -27,7 +27,9 @@ public class TestUnit {
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.pesarse();
-        socio1.cumplirObjetivo();
+        socio1.getObjetivo().crearRutina(); //generamos la rutina
+        socio1.cumplirObjetivo(); //se cumple el objetivo y se cambia la rutina a mantener figura
+
         Objetivo objetivo2 = new MantenerFigura(5);
         Assert.assertEquals(objetivo2, socio1.getObjetivo());
     }
