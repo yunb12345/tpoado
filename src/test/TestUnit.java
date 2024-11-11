@@ -68,7 +68,7 @@ public class TestUnit {
         socio1.getObjetivo().crearRutina(); //generamos la rutina
         socio1.getObjetivo().reforzarRutina();
         EjercicioReforzado ejercicioReforzado = new EjercicioReforzado(ejercicio1,5f);
-        Assert.assertEquals(1,BaseDato.getEjercicioReforzado());
+        Assert.assertEquals(4,BaseDato.getEjercicioReforzado().size());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class TestUnit {
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.getObjetivo().getRutina().iniciarRutina();
-        TrofeoConstancia trofeoConstancia = new TrofeoConstancia("asd");
+        TrofeoConstancia trofeoConstancia = new TrofeoConstancia("has sido constante");
         trofeoConstancia.otorgarTrofeo(socio1);
         Assert.assertEquals(1,socio1.getTrofeos().size());
     }
@@ -123,7 +123,7 @@ public class TestUnit {
         socio1.getObjetivo().crearRutina();
         socio1.getObjetivo().getRutina().iniciarRutina();
 
-        Assert.assertEquals(1,BaseDato.getEjercicioCompletados().size());
+        Assert.assertEquals(4,BaseDato.getEjercicioCompletados().size());
     }
 
     @Test
@@ -133,7 +133,4 @@ public class TestUnit {
         socioController.crearSocio(socio1);
         Assert.assertEquals(true,socio1.loguearse());
     }
-
-
-
 }
