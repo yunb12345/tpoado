@@ -13,7 +13,7 @@ public abstract class Objetivo {
     public abstract boolean cumplirObjetivo(Socio socio);
     public abstract boolean cumpleCriterio(Ejercicio ejercicio);
     public abstract void crearRutina();
-
+    public abstract void reforzarRutina();
     public void setRutina(Rutina rutina) {
         this.rutina = rutina;
     }

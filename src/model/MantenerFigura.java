@@ -1,6 +1,7 @@
 package model;
 
 import controller.EjercicioController;
+import controller.RutinaController;
 import model.enums.ExigenciaMuscular;
 
 import java.util.ArrayList;
@@ -22,9 +23,15 @@ public class MantenerFigura extends Objetivo{
 
     @Override
     public void crearRutina() {
+        RutinaController rutinaController = RutinaController.getInstancia();
         Rutina rutina = new Rutina();
         rutina.generarRutina(this);
-        this.setRutina(rutina);
+        rutinaController.agregarRutina(rutina);
+    }
+
+    @Override
+    public void reforzarRutina() {
+        rutina.reforzarRutina(0.5f); //valor hardcodeado del porcentaje
     }
 
     @Override

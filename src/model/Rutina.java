@@ -12,7 +12,7 @@ public class Rutina {
     }
 
     public void generarRutina(Objetivo objetivo){
-        int cantEntrenamiento = 4; //hardcodeado
+        int cantEntrenamiento = 4; //hardcodeado tiene 4 dias en teoria
         for(int i=0;i<cantEntrenamiento;i++){
             Entrenamiento entrenamiento = new Entrenamiento(i);
             entrenamiento.generarEjercicio(objetivo);
@@ -27,9 +27,12 @@ public class Rutina {
     }
     public void iniciarRutina(){
         for(Entrenamiento entrenamiento :entrenamientos){
+            /*
             if(entrenamiento.getDia() == 1){ //hardcodeado
                 entrenamiento.iniciarEntrenamiento();
             }
+             */
+            entrenamiento.iniciarEntrenamiento(); //inicia y termina el entrenamiento (hardcodeado)
         };
         this.finalizarRutina();
     }

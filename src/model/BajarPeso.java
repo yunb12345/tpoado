@@ -1,5 +1,8 @@
 package model;
 
+import bd.BaseDato;
+import controller.RutinaController;
+
 public class BajarPeso extends Objetivo{
     private float pesoIdeal;
 
@@ -14,20 +17,23 @@ public class BajarPeso extends Objetivo{
     @Override
     public boolean cumplirObjetivo(Socio socio) {
         pesoIdeal = calcularPesoIdeal();
-        if (socio.getUltimoPeso().getPeso() == calcularPesoIdeal()){
-            Objetivo objetivo = new MantenerFigura(5);
-            socio.cambiarObjetivo(objetivo);
-            return true;
-        }
-        return false;
+        return socio.getUltimoPeso().getPeso() == calcularPesoIdeal();
     }
 
     @Override
     public void crearRutina() {
+        RutinaController rutinaController = RutinaController.getInstancia();
         Rutina rutina = new Rutina();
         rutina.generarRutina(this);
+        rutinaController.agregarRutina(rutina);
         this.setRutina(rutina);
     }
+
+    @Override
+    public void reforzarRutina() {
+        rutina.reforzarRutina(0.5f); //valor hardcodeado del porcentaje
+    }
+
     @Override
     public boolean cumpleCriterio(Ejercicio ejercicio) {
         return ejercicio.getNivelAerobico()>=3;

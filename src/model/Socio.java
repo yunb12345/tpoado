@@ -62,6 +62,7 @@ public class Socio {
 
     public void cambiarObjetivo(Objetivo estadoObjetivo){
         this.objetivo = estadoObjetivo;
+        this.objetivo.crearRutina();
     }
 
     public List<Peso> getListaPeso() {return listaPeso;}
