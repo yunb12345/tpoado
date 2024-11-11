@@ -1,6 +1,7 @@
 package model;
 
 import controller.EjercicioController;
+import controller.RutinaController;
 import model.enums.ExigenciaMuscular;
 
 import java.util.ArrayList;
@@ -23,19 +24,20 @@ public class TonificarCuerpo extends Objetivo {
     public boolean cumplirObjetivo(Socio socio) {
         float grasaIdeal = calcularGrasaIdeal(socio);
         float masaIdeal = calcularMasaIdeal(socio);
-        if (socio.getUltimoPeso().getMasa() == masaIdeal && socio.getUltimoPeso().getMasa() == grasaIdeal){
-            Objetivo objetivo = new MantenerFigura(5);
-            socio.cambiarObjetivo(objetivo);
-            return true;
-        }
-        return false;
+        return socio.getUltimoPeso().getMasa() == masaIdeal && socio.getUltimoPeso().getMasa() == grasaIdeal;
     }
 
     @Override
     public void crearRutina() {
+        RutinaController rutinaController = RutinaController.getInstancia();
         Rutina rutina = new Rutina();
         rutina.generarRutina(this);
-        this.setRutina(rutina);
+        rutinaController.agregarRutina(rutina);
+    }
+
+    @Override
+    public void reforzarRutina() {
+        rutina.reforzarRutina(0.5f); //valor hardcodeado del porcentaje
     }
 
     @Override

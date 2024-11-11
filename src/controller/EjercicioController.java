@@ -3,6 +3,7 @@ package controller;
 import bd.BaseDato;
 import model.Ejercicio;
 import model.EjercicioCompletado;
+import model.EjercicioReforzado;
 
 import java.util.List;
 
@@ -27,5 +28,8 @@ public class EjercicioController {
     }
     public void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
         BaseDato.agregarEjercicioCompletado(ejercicioCompletado);
+    }
+    public void agregarEjercicioReforzado(EjercicioReforzado ejercicioReforzado){
+        BaseDato.agregarEjercicioReforzado(ejercicioReforzado);
     }
 }

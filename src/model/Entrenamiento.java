@@ -1,5 +1,6 @@
 package model;
 
+import bd.BaseDato;
 import controller.EjercicioController;
 import model.enums.ExigenciaMuscular;
 
@@ -52,10 +53,12 @@ public class Entrenamiento {
         this.ejercicios = ejercicios;
     }
     public void reforzarEjercicio(float porcentaje){
+        EjercicioController ejercicioController = EjercicioController.getInstancia();
         List<Ejercicio> ejerciciosReforzados = new ArrayList<>();
         for(Ejercicio ejercicio:ejercicios){
-            Ejercicio ejercicioReforzado = new EjercicioReforzado(ejercicio,porcentaje);
+            EjercicioReforzado ejercicioReforzado = new EjercicioReforzado(ejercicio,porcentaje);
             ejerciciosReforzados.add(ejercicioReforzado);
+            ejercicioController.agregarEjercicioReforzado(ejercicioReforzado);
         }
         setEjercicios(ejerciciosReforzados);
     }

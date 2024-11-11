@@ -12,6 +12,7 @@ public class EjercicioReforzado extends Ejercicio{
                 ejercicio.getGrupoMuscular());
 
         this.ejercicio=ejercicio;
+        aplicarModificaciones();
     }
     private void aplicarModificaciones() {
         ejercicio.pesoAsignado *= (1 + porcentaje / 100);
