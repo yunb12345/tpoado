@@ -25,6 +25,7 @@ public class Rutina {
             value.reforzarEjercicio(porcentaje);
         }
     }
+
     public void iniciarRutina(){
         for(Entrenamiento entrenamiento :entrenamientos){
             if(entrenamiento.getDia() == 1){ //hardcodeado

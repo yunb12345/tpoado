@@ -94,4 +94,7 @@ public class TestUnit {
         socioController.crearSocio(socio1);
         Assert.assertEquals(true,socio1.loguearse());
     }
+
+
+
 }
