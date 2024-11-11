@@ -22,6 +22,7 @@ public class EjercicioController {
     public List<Ejercicio> getEjercicios(){
         return BaseDato.getEjercicios();
     }
+
     public void agregarEjercicio(Ejercicio ejercicio){
         //ej Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5,ExigenciaMuscular.alto, GrupoMuscular.brazo);
         BaseDato.agregarEjercicio(ejercicio);

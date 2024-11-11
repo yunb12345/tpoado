@@ -86,6 +86,7 @@ public class Socio {
     public String getPassword(){
         return password;
     }
+
     public List<Trofeo> getTrofeos(){return trofeos;}
 
 }
