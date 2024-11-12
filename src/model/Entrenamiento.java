@@ -1,6 +1,5 @@
 package model;
 
-import bd.BaseDato;
 import controller.EjercicioController;
 import model.enums.ExigenciaMuscular;
 
@@ -11,21 +10,26 @@ public class Entrenamiento {
     private List<Ejercicio> ejercicios;
     private int dia;
     private boolean asistencia;
+    private boolean entrenamientoIniciado;
+    private boolean entrenamientoFinalizado;
 
     public Entrenamiento(int dia) {
         this.dia = dia;
         this.asistencia = false;
+        entrenamientoIniciado = false;
+        entrenamientoFinalizado = false;
     }
 
     public void iniciarEntrenamiento(){
-        this.finalizarEntrenamiento(); //hardcodeado
+        this.entrenamientoIniciado = true;
         asistencia = true;
+        for(Ejercicio ejercicio:ejercicios){
+            ejercicio.iniciarEjercicio();
+        }
     }
 
     public void finalizarEntrenamiento(){
-        for(Ejercicio ejercicio:ejercicios){
-            ejercicio.finalizarEjercicio(this);
-        }
+        this.entrenamientoFinalizado=true;
     }
 
     public boolean cumplioAsistencia() {
@@ -34,7 +38,7 @@ public class Entrenamiento {
 
     public boolean verificarEjerciciosCompletado(){
         for(Ejercicio value: ejercicios){
-            if(!value.ejercicioFinalizado()){
+            if(!value.esEjercicioCompletado()){
                 return false;
             }
         }
@@ -42,11 +46,24 @@ public class Entrenamiento {
     }
 
     public void generarEjercicio(Objetivo objetivo){
-        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios(); //no estoy seguro de esto
+        List<Ejercicio> ejercicio = EjercicioController.getInstancia().getEjercicios();
         List<Ejercicio> ejercicioAux = new ArrayList<>();
         for(Ejercicio value:ejercicio){
-            if(objetivo.cumpleCriterio(value)){
-                ejercicioAux.add(value);
+            if(objetivo instanceof BajarPeso){
+                if(value.getNivelAerobico()>=3) {
+                    ejercicioAux.add(value);
+                }
+            }
+            else if(objetivo instanceof TonificarCuerpo){
+                if(value.getNivelAerobico() <= 5 && value.getNivelMuscular() == ExigenciaMuscular.alto){
+                    ejercicioAux.add(value);
+                }
+            }
+            else{
+                if((value.getNivelAerobico() <= 2 && value.getNivelAerobico() <= 4) &&
+                        value.getNivelMuscular() != ExigenciaMuscular.alto){
+                    ejercicioAux.add(value);
+                }
             }
         }
         setEjercicios(ejercicioAux);

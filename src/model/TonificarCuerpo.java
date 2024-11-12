@@ -39,9 +39,4 @@ public class TonificarCuerpo extends Objetivo {
     public void reforzarRutina() {
         rutina.reforzarRutina(0.5f); //valor hardcodeado del porcentaje
     }
-
-    @Override
-    public boolean cumpleCriterio(Ejercicio ejercicio) {
-        return ejercicio.getNivelAerobico() <= 5 && ejercicio.getNivelMuscular() == ExigenciaMuscular.alto;
-    }
 }

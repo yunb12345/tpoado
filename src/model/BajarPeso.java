@@ -34,9 +34,4 @@ public class BajarPeso extends Objetivo{
         rutina.reforzarRutina(0.5f); //valor hardcodeado del porcentaje
     }
 
-    @Override
-    public boolean cumpleCriterio(Ejercicio ejercicio) {
-        return ejercicio.getNivelAerobico()>=3;
-    }
-
 }

@@ -2,7 +2,7 @@ package controller;
 
 import bd.BaseDato;
 import model.Ejercicio;
-import model.EjercicioCompletado;
+import model.EjercicioRegistrar;
 import model.EjercicioReforzado;
 
 import java.util.List;
@@ -27,8 +27,8 @@ public class EjercicioController {
         //ej Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5,ExigenciaMuscular.alto, GrupoMuscular.brazo);
         BaseDato.agregarEjercicio(ejercicio);
     }
-    public void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
-        BaseDato.agregarEjercicioCompletado(ejercicioCompletado);
+    public void agregarEjercicioRegistrado(EjercicioRegistrar ejercicioRegistrar){
+        BaseDato.agregarEjercicioRegistrado(ejercicioRegistrar);
     }
     public void agregarEjercicioReforzado(EjercicioReforzado ejercicioReforzado){
         BaseDato.agregarEjercicioReforzado(ejercicioReforzado);

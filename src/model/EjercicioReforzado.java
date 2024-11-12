@@ -10,15 +10,17 @@ public class EjercicioReforzado extends Ejercicio{
         super(ejercicio.getCantidadSeries(),ejercicio.getRepeticiones(),ejercicio.getPesoAsignado(),
                 ejercicio.getNivelAerobico(), ejercicio.getNivelMuscular(),
                 ejercicio.getGrupoMuscular());
-
         this.ejercicio=ejercicio;
-        aplicarModificaciones();
+    }
+    public int getCantidadSeries() {
+        return Math.round(ejercicio.getCantidadSeries() * (1 + porcentaje / 100));
     }
 
-    private void aplicarModificaciones() {
-        ejercicio.pesoAsignado *= (1 + porcentaje / 100);
-        ejercicio.repeticiones = Math.round(ejercicio.repeticiones * (1 + porcentaje / 100));
-        ejercicio.cantidadSeries = Math.round(ejercicio.cantidadSeries * (1 + porcentaje / 100));
+    public int getRepeticiones() {
+        return Math.round(ejercicio.getRepeticiones() * (1 + porcentaje / 100));
     }
 
+    public float getPesoAsignado() {
+        return (1 + porcentaje / 100) + ejercicio.getPesoAsignado();
+    }
 }

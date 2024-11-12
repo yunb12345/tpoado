@@ -6,15 +6,17 @@ import model.enums.GrupoMuscular;
 
 import java.util.Date;
 
-public abstract class Ejercicio{
-    protected int cantidadSeries;
-    protected int repeticiones;
-    protected float pesoAsignado;
-    protected int nivelAerobico;
-    protected ExigenciaMuscular nivelMuscular;
-    protected GrupoMuscular grupoMuscular;
-    protected VideoEjercicio video;//agregac
-    protected boolean ejercicioFinalizado;
+public class Ejercicio{
+    private int cantidadSeries;
+    private int repeticiones;
+    private float pesoAsignado;
+    private int nivelAerobico;
+    private ExigenciaMuscular nivelMuscular;
+    private GrupoMuscular grupoMuscular;
+    private VideoEjercicio video;//agregac
+    private boolean ejercicioIniciado;
+    private boolean ejercicioFinalizado;
+    private boolean ejercicioCompletado;
 
 
     public Ejercicio(int cantidadSeries, int repeticiones, float pesoAsignado, int nivelAerobico,
@@ -26,22 +28,30 @@ public abstract class Ejercicio{
         this.nivelMuscular = nivelMuscular;
         this.grupoMuscular = grupoMuscular;
         this.ejercicioFinalizado = false;
+        this.ejercicioIniciado = false;
+        this.ejercicioCompletado = false;
     }
 
-    public void iniciarEjercicio(){
-        System.out.println("Inicio de ejercicio");
+    public boolean iniciarEjercicio(){
+        ejercicioIniciado=true;
     }
 
-    public void finalizarEjercicio(Entrenamiento entrenamiento){
+    public void finalizarEjercicio(Entrenamiento entrenamiento,int cantidadSeries,int repeticiones,float pesoAsignado){
         Date fechaActual = new Date();
-        EjercicioCompletado ejercicioCompletado = new EjercicioCompletado(cantidadSeries,repeticiones,pesoAsignado,
+        EjercicioRegistrar ejercicioRegistrar = new EjercicioRegistrar(cantidadSeries,repeticiones,pesoAsignado,
                 fechaActual,entrenamiento,this);
-        EjercicioController.getInstancia().agregarEjercicioCompletado(ejercicioCompletado);
-        ejercicioFinalizado = true;
+        EjercicioController.getInstancia().agregarEjercicioRegistrado(ejercicioRegistrar);
+        if(cantidadSeries >= this.cantidadSeries && repeticiones >= this.repeticiones && pesoAsignado >= this.pesoAsignado){
+            ejercicioCompletado = true;
+        }
     }
 
     public boolean ejercicioFinalizado(){
         return ejercicioFinalizado;
+    }
+
+    public boolean esEjercicioCompletado() {
+        return ejercicioCompletado;
     }
 
     public int getNivelAerobico() {
@@ -67,5 +77,4 @@ public abstract class Ejercicio{
     public GrupoMuscular getGrupoMuscular() {
         return grupoMuscular;
     }
-
 }

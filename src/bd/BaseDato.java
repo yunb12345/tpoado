@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BaseDato {
     private static List<Ejercicio> ejercicios = new ArrayList<>();
-    private static List<EjercicioCompletado> ejercicioCompletados = new ArrayList<>();
+    private static List<EjercicioRegistrar> ejercicioRegistrados= new ArrayList<>();
     private static List<Socio> socios = new ArrayList<>();
     private static List<EjercicioReforzado> ejercicioReforzados = new ArrayList<>();
     private static List<Rutina> rutinas = new ArrayList<>();
@@ -20,8 +20,8 @@ public class BaseDato {
         return ejercicios;
     }
 
-    public static void agregarEjercicioCompletado(EjercicioCompletado ejercicioCompletado){
-        ejercicioCompletados.add(ejercicioCompletado);
+    public static void agregarEjercicioRegistrado(EjercicioRegistrar ejercicioRegistrar){
+        ejercicioRegistrados.add(ejercicioRegistrar);
     }
     public static void agregarEjercicioReforzado(EjercicioReforzado ejercicioReforzado){
         ejercicioReforzados.add(ejercicioReforzado);
@@ -37,8 +37,9 @@ public class BaseDato {
     public static List<EjercicioReforzado> getEjercicioReforzado(){
         return ejercicioReforzados;
     }
-    public static List<EjercicioCompletado> getEjercicioCompletados(){
-        return ejercicioCompletados;
+
+    public static List<EjercicioRegistrar> getEjercicioCompletados(){
+        return ejercicioRegistrados;
     }
 
     public static void agregarSocio(Socio socio){

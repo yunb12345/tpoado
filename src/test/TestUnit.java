@@ -23,10 +23,18 @@ public class TestUnit {
     }
 
     @Test
+    public void autenticarUsuario(){
+        socioController = socioController.getInstance();
+        Socio socio1 = new Socio(27,'M',1.90f,"Matias","123");
+        socioController.crearSocio(socio1);
+        Assert.assertEquals(true,socio1.loguearse());
+    }
+
+    @Test
     public void cambiarObjetivo(){
         ejercicioController = ejercicioController.getInstancia();
-        Ejercicio ejercicio1 = new EjercicioConcreto(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
-        Ejercicio ejercicio2 = new EjercicioConcreto(1,1,12.3f,3, ExigenciaMuscular.alto, GrupoMuscular.brazo); //ejercicio para mantener figura
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        Ejercicio ejercicio2 = new Ejercicio(1,1,12.3f,3, ExigenciaMuscular.alto, GrupoMuscular.brazo); //ejercicio para mantener figura
         ejercicioController.agregarEjercicio(ejercicio1);
         ejercicioController.agregarEjercicio(ejercicio2);
 
@@ -44,7 +52,7 @@ public class TestUnit {
     @Test
     public void asignarRutina(){
         ejercicioController = ejercicioController.getInstancia();
-        Ejercicio ejercicio1 = new EjercicioConcreto(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo);
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo);
         ejercicioController.agregarEjercicio(ejercicio1);
 
         Socio socio1 = new Socio(14,'M',1.65f,"Agustin","1234");
@@ -58,7 +66,7 @@ public class TestUnit {
     @Test
     public void reforzarRutina(){
         ejercicioController = ejercicioController.getInstancia();
-        Ejercicio ejercicio1 = new EjercicioConcreto(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
         ejercicioController.agregarEjercicio(ejercicio1);
 
         Socio socio1 = new Socio(30,'M',1.85f,"Matias","666");
@@ -69,6 +77,44 @@ public class TestUnit {
         socio1.getObjetivo().reforzarRutina();
         EjercicioReforzado ejercicioReforzado = new EjercicioReforzado(ejercicio1,5f);
         Assert.assertEquals(4,BaseDato.getEjercicioReforzado().size());
+    }
+    @Test
+    public void iniciarRutina(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().isRutinaIniciada());
+    }
+    @Test
+    public void finalizarRutina(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().getRutina().finalizarRutina();
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().isRutinaFinalizada());
+    }
+    @Test
+    public void iniciarEntrenamiento(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
+        Assert.assertEquals(true,);
     }
 
     @Test
@@ -83,7 +129,7 @@ public class TestUnit {
     @Test
     public void TrofeoConstancia(){
         ejercicioController = ejercicioController.getInstancia();
-        Ejercicio ejercicio1 = new EjercicioConcreto(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
         ejercicioController.agregarEjercicio(ejercicio1);
 
         Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
@@ -110,9 +156,9 @@ public class TestUnit {
     @Test
     public void registrarEjercicio(){
         ejercicioController = ejercicioController.getInstancia();
-        Ejercicio ejercicio1 = new EjercicioConcreto(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo);
-        Ejercicio ejercicio2 = new EjercicioConcreto(1,1,12.3f,2, ExigenciaMuscular.alto, GrupoMuscular.brazo);
-        Ejercicio ejercicio3 = new EjercicioConcreto(1,1,12.3f,1, ExigenciaMuscular.alto, GrupoMuscular.brazo);
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo);
+        Ejercicio ejercicio2 = new Ejercicio(1,1,12.3f,2, ExigenciaMuscular.alto, GrupoMuscular.brazo);
+        Ejercicio ejercicio3 = new Ejercicio(1,1,12.3f,1, ExigenciaMuscular.alto, GrupoMuscular.brazo);
         ejercicioController.agregarEjercicio(ejercicio1);
         ejercicioController.agregarEjercicio(ejercicio2);
         ejercicioController.agregarEjercicio(ejercicio3);
@@ -121,17 +167,8 @@ public class TestUnit {
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.getObjetivo().crearRutina();
-        socio1.getObjetivo().getRutina().iniciarRutina();
 
         Assert.assertEquals(1,BaseDato.getEjercicioCompletados().size());
-    }
-
-    @Test
-    public void autenticarUsuario(){
-        socioController = socioController.getInstance();
-        Socio socio1 = new Socio(27,'M',1.90f,"Matias","123");
-        socioController.crearSocio(socio1);
-        Assert.assertEquals(true,socio1.loguearse());
     }
 
 
