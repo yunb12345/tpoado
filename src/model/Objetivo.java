@@ -16,6 +16,12 @@ public abstract class Objetivo {
 
     public abstract void reforzarRutina();
 
+    public void iniciarRutina(){
+        rutina.iniciarRutina();
+    }
+    public void finalizarRutina(){
+        rutina.finalizarRutina();
+    }
     public void setRutina(Rutina rutina) {
         this.rutina = rutina;
     }

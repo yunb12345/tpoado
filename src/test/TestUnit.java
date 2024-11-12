@@ -88,7 +88,7 @@ public class TestUnit {
         socio1.pesarse();
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
-        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().iniciarRutina();
         Assert.assertEquals(true,socio1.getObjetivo().getRutina().isRutinaIniciada());
     }
     @Test
@@ -100,8 +100,8 @@ public class TestUnit {
         socio1.pesarse();
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
-        socio1.getObjetivo().getRutina().iniciarRutina();
-        socio1.getObjetivo().getRutina().finalizarRutina();
+        socio1.getObjetivo().iniciarRutina();
+        socio1.getObjetivo().finalizarRutina();
         Assert.assertEquals(true,socio1.getObjetivo().getRutina().isRutinaFinalizada());
     }
     @Test
@@ -125,7 +125,7 @@ public class TestUnit {
         socio1.pesarse();
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
-        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().iniciarRutina();
         socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
         socio1.getObjetivo().getRutina().finalizarEntrenamientoDelDia(1);
         Assert.assertEquals(true,socio1.getObjetivo().getRutina().isEntrenamientoDelDiaFinalizada(1));
