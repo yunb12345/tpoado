@@ -10,7 +10,7 @@ public class SocioController {
     private SocioController(){
     }
 
-    public static SocioController getInstance(){
+    public static SocioController getInstancia(){
         if(INSTANCE  == null){
             INSTANCE = new SocioController();
         }

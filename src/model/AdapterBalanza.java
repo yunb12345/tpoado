@@ -1,14 +1,14 @@
 package model;
 
-import model.interfaces.IBalanza;
+import model.interfaces.IAdapterBalanza;
 
-public class Balanza implements IBalanza {
+public class AdapterBalanza implements IAdapterBalanza {
 
     private float peso;
     private float porcentajeGrasa;
     private float masaMuscular;
 
-    public Balanza(){
+    public AdapterBalanza(){
 
     }
 
