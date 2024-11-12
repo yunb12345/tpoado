@@ -207,8 +207,9 @@ public class TestUnit {
         Socio socio1 = new Socio(19,'M',1.69f,"Marcos","7844");
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
-        socio1.getObjetivo().crearRutina();
-
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
+        socio1.getObjetivo().getRutina().getEntrenamientoDelDia(1).finalizarEjercicio(1,4,12.3f,ejercicio1);
         Assert.assertEquals(1,BaseDato.getEjercicioCompletados().size());
     }
 
