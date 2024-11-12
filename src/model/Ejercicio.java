@@ -33,7 +33,7 @@ public class Ejercicio{
     }
 
     public boolean iniciarEjercicio(){
-        ejercicioIniciado=true;
+        return ejercicioIniciado=true;
     }
 
     public void finalizarEjercicio(Entrenamiento entrenamiento,int cantidadSeries,int repeticiones,float pesoAsignado){
@@ -44,6 +44,7 @@ public class Ejercicio{
         if(cantidadSeries >= this.cantidadSeries && repeticiones >= this.repeticiones && pesoAsignado >= this.pesoAsignado){
             ejercicioCompletado = true;
         }
+        ejercicioFinalizado = true;
     }
 
     public boolean ejercicioFinalizado(){
@@ -76,5 +77,13 @@ public class Ejercicio{
 
     public GrupoMuscular getGrupoMuscular() {
         return grupoMuscular;
+    }
+
+    public boolean isEjercicioIniciado() {
+        return ejercicioIniciado;
+    }
+
+    public void setEjercicioIniciado(boolean ejercicioIniciado) {
+        this.ejercicioIniciado = ejercicioIniciado;
     }
 }

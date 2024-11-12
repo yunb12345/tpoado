@@ -29,9 +29,29 @@ public class Entrenamiento {
     }
 
     public void finalizarEntrenamiento(){
-        this.entrenamientoFinalizado=true;
+        if(isEntrenamientoIniciado()){
+            this.entrenamientoFinalizado=true;
+        }
     }
-
+    public void finalizarEjercicio(int cantidadSeries,int repeticiones,float pesoAsignado,Ejercicio ejercicio){
+        for(Ejercicio value:ejercicios){
+            if(value.getRepeticiones() == ejercicio.getRepeticiones() && value.getNivelMuscular() == ejercicio.getNivelMuscular() &&
+                    value.getPesoAsignado() == ejercicio.getPesoAsignado() && value.getNivelAerobico() == ejercicio.getNivelAerobico()
+                && value.getGrupoMuscular() == ejercicio.getGrupoMuscular() && value.getCantidadSeries() == ejercicio.getCantidadSeries()){
+                value.finalizarEjercicio(this,cantidadSeries,repeticiones,pesoAsignado);
+            }
+        }
+    }
+    public boolean ejercicioFinalizado(Ejercicio ejercicio){
+        for(Ejercicio value:ejercicios){
+            if(value.getRepeticiones() == ejercicio.getRepeticiones() && value.getNivelMuscular() == ejercicio.getNivelMuscular() &&
+                    value.getPesoAsignado() == ejercicio.getPesoAsignado() && value.getNivelAerobico() == ejercicio.getNivelAerobico()
+                    && value.getGrupoMuscular() == ejercicio.getGrupoMuscular() && value.getCantidadSeries() == ejercicio.getCantidadSeries()){
+                return value.ejercicioFinalizado();
+            }
+        }
+        return false;
+    }
     public boolean cumplioAsistencia() {
         return asistencia;
     }
@@ -86,5 +106,16 @@ public class Entrenamiento {
 
     public int getDia() {
         return dia;
+    }
+
+    public boolean isEntrenamientoIniciado() {
+        return entrenamientoIniciado;
+    }
+
+    public boolean isEntrenamientoFinalizado() {
+        return entrenamientoFinalizado;
+    }
+    public List<Ejercicio> getEjercicios(){
+        return ejercicios;
     }
 }

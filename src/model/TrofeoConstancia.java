@@ -10,7 +10,7 @@ public class TrofeoConstancia extends Trofeo{
 
     @Override
     public void otorgarTrofeo(Socio socio){
-        if(socio.getObjetivo().getRutina().rutinaCompletada()){
+        if(socio.getObjetivo().getRutina().isRutinaFinalizada()){
             socio.agregarTrofeo(this);
             notificador.notificar(new Notificacion("Felicidades, has obtenido un nuevo trofeo"));
         }

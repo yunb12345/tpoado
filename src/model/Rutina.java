@@ -9,7 +9,7 @@ public class Rutina {
     private boolean rutinaIniciada;
     private boolean rutinaFinalizada;
     private boolean rutinaCompletada;
-    
+
     public Rutina() {
         entrenamientos = new ArrayList<>();
         rutinaIniciada=false;
@@ -41,11 +41,36 @@ public class Rutina {
         }
     }
     public void iniciarEntrenamientoDelDia(int dia){
-        for(Entrenamiento entrenamiento:entrenamientos){
-            if(entrenamiento.getDia() == dia){
-                entrenamiento.iniciarEntrenamiento();
+        if(isRutinaIniciada()){
+            for(Entrenamiento entrenamiento:entrenamientos){
+                if(entrenamiento.getDia() == dia){
+                    entrenamiento.iniciarEntrenamiento();
+                }
             }
         }
+    }
+    public void finalizarEntrenamientoDelDia(int dia){
+        for(Entrenamiento entrenamiento:entrenamientos){
+            if(entrenamiento.getDia() == dia){
+                entrenamiento.finalizarEntrenamiento();
+            }
+        }
+    }
+    public boolean isEntrenamientoDelDiaFinalizada(int dia){
+        for(Entrenamiento entrenamiento:entrenamientos){
+            if(entrenamiento.getDia() == dia){
+                return entrenamiento.isEntrenamientoFinalizado();
+            }
+        }
+        return false;
+    }
+    public boolean isEntrenamientoDelDiaIniciada(int dia){
+        for(Entrenamiento entrenamiento:entrenamientos){
+            if(entrenamiento.getDia() == dia){
+                return entrenamiento.isEntrenamientoIniciado();
+            }
+        }
+        return false;
     }
     public boolean isRutinaCompletada(){
         for(Entrenamiento value: entrenamientos){
@@ -61,4 +86,13 @@ public class Rutina {
     public boolean isRutinaFinalizada() {
         return rutinaFinalizada;
     }
+    public Entrenamiento getEntrenamientoDelDia(int dia){
+        for(Entrenamiento entrenamiento:entrenamientos){
+            if (entrenamiento.getDia()==dia){
+                return entrenamiento;
+            }
+        }
+        return null;
+    }
+
 }

@@ -114,9 +114,50 @@ public class TestUnit {
         Objetivo objetivo = new BajarPeso();
         socio1.cambiarObjetivo(objetivo);
         socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
-        Assert.assertEquals(true,);
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().isEntrenamientoDelDiaIniciada(1));
     }
+    @Test
+    public void finalizarEntrenamiento(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
+        socio1.getObjetivo().getRutina().finalizarEntrenamientoDelDia(1);
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().isEntrenamientoDelDiaFinalizada(1));
+    }
+    @Test
+    public void iniciarEjercicio(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1); //inicia todos los ejercicios de ese dia
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().getEntrenamientoDelDia(1).getEjercicios().get(0).isEjercicioIniciado());
+    }
+    @Test
+    public void finalizarEjercicio(){
+        ejercicioController = ejercicioController.getInstancia();
+        Ejercicio ejercicio1 = new Ejercicio(1,1,12.3f,5, ExigenciaMuscular.alto, GrupoMuscular.brazo); //bajar peso
+        ejercicioController.agregarEjercicio(ejercicio1);
+        Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
+        socio1.pesarse();
+        Objetivo objetivo = new BajarPeso();
+        socio1.cambiarObjetivo(objetivo);
+        socio1.getObjetivo().getRutina().iniciarRutina();
+        socio1.getObjetivo().getRutina().iniciarEntrenamientoDelDia(1);
+        socio1.getObjetivo().getRutina().getEntrenamientoDelDia(1).finalizarEjercicio(1,4,12.3f,ejercicio1);
+        Assert.assertEquals(true,socio1.getObjetivo().getRutina().getEntrenamientoDelDia(1).ejercicioFinalizado(ejercicio1));
 
+    }
     @Test
     public void asignarTrofeoCreido(){
         Socio socio1 = new Socio(22,'M',1.75f,"Lucas","78893");
