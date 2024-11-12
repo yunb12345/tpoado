@@ -16,7 +16,7 @@ public class TestUnit {
 
     @Test
     public void crearUsuario(){
-        socioController = socioController.getInstance();
+        socioController = socioController.getInstancia();
         Socio socio1 = new Socio(25,'M',1.45f,"Agustin","14735");
         socioController.crearSocio(socio1);
         Assert.assertEquals(1, BaseDato.getSocios().size());
@@ -24,7 +24,7 @@ public class TestUnit {
 
     @Test
     public void autenticarUsuario(){
-        socioController = socioController.getInstance();
+        socioController = socioController.getInstancia();
         Socio socio1 = new Socio(27,'M',1.90f,"Matias","123");
         socioController.crearSocio(socio1);
         Assert.assertEquals(true,socio1.loguearse());
